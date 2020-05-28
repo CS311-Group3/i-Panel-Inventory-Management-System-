@@ -16,6 +16,36 @@
                     </span>
                 </a>
             </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                <a class="nav-link" routerLink="login-page" (click)="collapseNavbar()">
+                                    <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
+                                    <span>Login Page</span>
+                                </a>
+                            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                <a class="nav-link" routerLink="purchase-cart" (click)="collapseNavbar()">
+                                    <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
+                                    <span>Purchase Cart</span>
+                                </a>
+                            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                <a class="nav-link" routerLink="purchase-checkout" (click)="collapseNavbar()">
+                                    <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
+                                    <span>Purchase Checkout</span>
+                                </a>
+                            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                <a class="nav-link" routerLink="sales-cart" (click)="collapseNavbar()">
+                                    <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
+                                    <span>Sales Cart</span>
+                                </a>
+                            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                <a class="nav-link" routerLink="sales-customer-details" (click)="collapseNavbar()">
+                                    <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
+                                    <span>Sales Customer Details</span>
+                                </a>
+                            </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">

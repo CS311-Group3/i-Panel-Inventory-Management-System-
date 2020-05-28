@@ -1,0 +1,3 @@
+describe('PurchaseCartComponent Tests', () => {
+
+});

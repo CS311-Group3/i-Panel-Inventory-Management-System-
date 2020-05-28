@@ -7,6 +7,11 @@ import { IpanelCoreModule } from 'app/core/core.module';
 import { IpanelAppRoutingModule } from './app-routing.module';
 import { IpanelHomeModule } from './Pages/home/home.module';
 import { IpanelEntityModule } from './entities/entity.module';
+import { IpanelAppLoginPageModule } from './Pages/Login/login-page/login-page.module';
+import { IpanelAppPurchaseCartModule } from './Pages/Purchase/purchase-cart/purchase-cart.module';
+import { IpanelAppPurchaseCheckoutModule } from './Pages/Purchase/purchase-checkout/purchase-checkout.module';
+import { IpanelAppSalesCartModule } from './Pages/Sales/sales-cart/sales-cart.module';
+import { IpanelAppSalesCustomerDetailsModule } from './Pages/Sales/sales-customer-details/sales-customer-details.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -20,6 +25,11 @@ import { ErrorComponent } from './layouts/error/error.component';
     IpanelSharedModule,
     IpanelCoreModule,
     IpanelHomeModule,
+    IpanelAppLoginPageModule,
+    IpanelAppPurchaseCartModule,
+    IpanelAppPurchaseCheckoutModule,
+    IpanelAppSalesCartModule,
+    IpanelAppSalesCustomerDetailsModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     IpanelEntityModule,
     IpanelAppRoutingModule
