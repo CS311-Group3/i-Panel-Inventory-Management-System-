@@ -11,6 +11,7 @@ import { IpanelAppLoginPageModule } from './Pages/Login/login-page/login-page.mo
 import { IpanelAppPurchaseCartModule } from './Pages/Purchase/purchase-cart/purchase-cart.module';
 import { IpanelAppPurchaseCheckoutModule } from './Pages/Purchase/purchase-checkout/purchase-checkout.module';
 import { IpanelAppSalesCartModule } from './Pages/Sales/sales-cart/sales-cart.module';
+import { IpanelAppCustomerDetailsModule } from './Pages/Sales/customer-details/customer-details.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -28,6 +29,7 @@ import { ErrorComponent } from './layouts/error/error.component';
     IpanelAppPurchaseCartModule,
     IpanelAppPurchaseCheckoutModule,
     IpanelAppSalesCartModule,
+    IpanelAppCustomerDetailsModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     IpanelEntityModule,
     IpanelAppRoutingModule
