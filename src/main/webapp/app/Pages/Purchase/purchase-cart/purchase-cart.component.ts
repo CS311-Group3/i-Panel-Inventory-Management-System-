@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {BuyPopupComponent} from "app/buy-popup/buy-popup.component";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'jhi-purchase-cart',
@@ -11,11 +13,16 @@ export class PurchaseCartComponent implements OnInit {
 
   message: string;
 
-  constructor() {
+  constructor(private modalService:NgbModal) {
     this.message = 'PurchaseCartComponent message';
   }
 
   ngOnInit(): void {
+  }
+
+  addToCart():void {
+    const modalRef = this.modalService.open(BuyPopupComponent);
+
   }
 
 }
