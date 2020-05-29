@@ -5,14 +5,14 @@
 
 
 <div class="wrapper">
-<!--    side bar-->
+    <!--    side bar-->
     <div class="row">
-        <div class="col-md-2 test sidebarcolor">
+        <div class="col-md-2 sidebarcolor">
             <span class="logo img-fluid rounded"></span>
         </div>
 
-<!--content-->
-        <div class="col-md-10">
+        <!--content-->
+        <div class="col-md-10 ">
             <div class="card jh-card">
                 <router-outlet></router-outlet>
             </div>
@@ -24,6 +24,9 @@
 
 <style>
 
+
+
+
     .sidebarcolor {
         background-color: #662e91;
     }
@@ -34,6 +37,7 @@
         height: 397px;
         background: url('../../../content/images/logo.jpg') no-repeat center top;
         background-size: contain;
+
     }
 
     .wrapper {
@@ -41,7 +45,6 @@
         padding-right: 15px;
 
     }
-
 
 
     @media only screen and (max-width: 768px) {
