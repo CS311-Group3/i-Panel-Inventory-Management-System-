@@ -18,7 +18,7 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ErrorComponent } from './layouts/error/error.component';
-import { BuyPopupComponent } from './buy-popup/buy-popup.component';
+import { BuyPopupComponent } from "app/buy-popup/buy-popup.component";
 
 @NgModule({
   imports: [
