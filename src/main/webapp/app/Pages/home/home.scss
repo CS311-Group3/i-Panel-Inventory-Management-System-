@@ -1,14 +1,124 @@
 /* ==========================================================================
 Main page styles
 ========================================================================== */
-
-.hipster {
+.menuImage{
   display: inline-block;
-  width: 347px;
-  height: 497px;
-  background: url('../../../content/images/jhipster_family_member_1.svg') no-repeat center top;
-  background-size: contain;
+  width: 110px;
+  height: 110px;
 }
+
+
+
+.purchases {
+  @extend .menuImage;
+  background: url('../../../content/images/Main menu/cart.png') no-repeat center top;
+  background-size: contain;
+  text-align: center;
+
+  &:hover{
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.sales {
+  @extend .menuImage;
+  background: url('../../../content/images/Main menu/sales.png') no-repeat center top;
+  background-size: contain;
+  text-align: center;
+
+  &:hover{
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.returns {
+  @extend .menuImage;
+  background: url('../../../content/images/Main menu/returns.png') no-repeat center top;
+  background-size: contain;
+  text-align: center;
+
+  &:hover{
+    width: 120px;
+    height: 120px;
+  }
+}
+
+
+.analytics {
+  @extend .menuImage;
+  background: url('../../../content/images/Main menu/analytics.png') no-repeat center top;
+  background-size: contain;
+  text-align: center;
+
+  &:hover{
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.history {
+  @extend .menuImage;
+  background: url('../../../content/images/Main menu/history.png') no-repeat center top;
+  background-size: contain;
+  text-align: center;
+
+  &:hover{
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.stocks {
+  @extend .menuImage;
+  background: url('../../../content/images/Main menu/stocks.png') no-repeat center top;
+  background-size: contain;
+  text-align: center;
+
+  &:hover{
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.notifications {
+  @extend .menuImage;
+  background: url('../../../content/images/Main menu/notifications.png') no-repeat center top;
+  background-size: contain;
+  text-align: center;
+
+  &:hover{
+    width: 120px;
+    height: 120px;
+  }
+}
+
+
+.settings {
+  @extend .menuImage;
+  background: url('../../../content/images/Main menu/settings.png') no-repeat center top;
+  background-size: contain;
+  text-align: center;
+
+  &:hover{
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.logout {
+  @extend .menuImage;
+  background: url('../../../content/images/Main menu/logout.png') no-repeat center top;
+  background-size: contain;
+  text-align: center;
+
+  &:hover{
+    width: 120px;
+    height: 120px;
+  }
+}
+
 
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
