@@ -2,6 +2,23 @@
 An Inventory management system for the ipanel Siwilima showroom. 
 This system will provide an easy way to track and manage the inventory of the showroom and also to track and manage the stock purchase records and sales records.
 
+# Installing
+1. Clone the repository
+```
+git clone https://github.com/CS311-Group3/i-Panel-Inventory-Management-System-.git
+```
+2. Install packages
+```
+npm install
+```
+3. Run the server
+```
+npm start
+```
+
+
+
+
 # Built with
 * [AngularJs](https://github.com/angular/angular.js/)
 * [Bootstrap](https://github.com/twbs/bootstrap)
