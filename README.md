@@ -2,7 +2,12 @@
 An Inventory management system for the ipanel Siwilima showroom. 
 This system will provide an easy way to track and manage the inventory of the showroom and also to track and manage the stock purchase records and sales records.
 
-# Installing
+## Getting Started
+
+### Prerequisites
+Install [MySql](https://dev.mysql.com/downloads/mysql/) and the latest versions of [Java](https://www.java.com/en/download/) and [Node.js](https://nodejs.org/en/download/)
+
+### Installing
 1. Clone the repository
 ```
 git clone https://github.com/CS311-Group3/i-Panel-Inventory-Management-System-.git
@@ -19,16 +24,16 @@ npm start
 
 
 
-# Built with
+## Built with
 * [AngularJs](https://github.com/angular/angular.js/)
 * [Bootstrap](https://github.com/twbs/bootstrap)
 * [TypeScript](https://github.com/microsoft/TypeScript)
 * [Spring Boot](https://github.com/spring-projects/spring-boot)
 
-# Authors
+## Authors
 See the detailed list of [contributors](https://github.com/CS311-Group3/i-Panel-Inventory-Management-System-/graphs/contributors?) who contributed to this project.
 
-# License
+## License
 This project is licensed under [GPL-3 License](https://github.com/CS311-Group3/i-Panel-Inventory-Management-System-/blob/master/LICENSE).
 
 
