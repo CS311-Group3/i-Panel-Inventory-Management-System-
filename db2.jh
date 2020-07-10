@@ -1,0 +1,111 @@
+
+
+
+
+entity Inventory {
+	itemCode String,
+    itemName String,
+    category Category,
+    description String,
+    
+    quantity Integer,
+    reorderLevel Integer,
+    sellingPrice Long,
+    buyingPrice Long
+}
+
+enum Category{
+	CAT1, CAT2
+}
+
+entity Vendor{
+	vendorName String,
+    phone String,
+    email String,
+    address String
+}
+
+entity Purchases{
+    total Float,
+    discounts Float,
+    dateOfPurchase LocalDate
+}
+
+relationship OneToOne {
+	Purchases{vendorID} to Vendor
+}
+
+entity PurchaseItems{
+	unitPrice Float,
+    quantity Integer,
+    total Float
+}
+
+relationship OneToMany{
+	Purchases{items(purchaseCode)} to PurchaseItems{purchaseCode}
+}
+
+relationship ManyToOne{
+	PurchaseItems{itemCode(itemCode)} to Inventory
+}
+
+
+entity CustomerDetails{
+	salesCode String,
+    customerName String,
+    email String,
+    address String,
+    phone String
+}
+
+entity Sales{
+    total Float,
+    serviceCharges Float,
+    dateOfSale LocalDate
+}
+
+relationship OneToOne{
+	Sales{customerID} to CustomerDetails
+}
+
+entity SalesItems{
+	unitPrice Float,
+    quantity Integer,
+    total Float
+}
+
+relationship OneToMany{
+	Sales{items(salesCode)} to SalesItems{salesCode(id)}
+}
+
+relationship ManyToOne{
+	SalesItems{itemCode(itemCode)} to Inventory
+}
+
+
+entity ReturnsData {
+    dateOfReturn LocalDate
+}
+
+relationship OneToOne{
+	ReturnsData{salesCode} to Sales
+}
+
+entity ReturnItems{
+	quantity Integer
+}
+
+relationship OneToMany{
+	ReturnsData{items(returnCode)} to ReturnItems{returnCode}
+}
+
+relationship ManyToOne{
+	ReturnItems{itemCode(itemCode)} to Inventory
+}
+
+
+
+
+
+
+

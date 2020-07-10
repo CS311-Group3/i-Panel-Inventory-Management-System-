@@ -4,7 +4,7 @@ import { UserRouteAccessService } from 'app/core/auth/user-route-access-service'
 import { CustomerDetailsComponent } from './customer-details.component';
 
 export const CUSTOMER_DETAILS_ROUTE: Route = {
-  path: 'customer-details',
+  path: 'customer-details-sales',
   component: CustomerDetailsComponent,
   data: {
     authorities: [],

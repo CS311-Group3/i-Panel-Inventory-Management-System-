@@ -1,0 +1,44 @@
+{
+  "name": "Sales",
+  "fields": [
+    {
+      "fieldName": "total",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "serviceCharges",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "dateOfSale",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "customerDetails",
+      "otherEntityRelationshipName": "sales",
+      "relationshipName": "customerID",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "salesItems",
+      "otherEntityRelationshipName": "salesCode",
+      "relationshipName": "items"
+    }
+  ],
+  "changelogDate": "20200710104656",
+  "entityTableName": "sales",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

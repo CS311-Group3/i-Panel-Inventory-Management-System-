@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="salesItems">
+            <h2><span>Sales Items</span> {{ salesItems.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Unit Price</span></dt>
+                <dd>
+                    <span>{{ salesItems.unitPrice }}</span>
+                </dd>
+                <dt><span>Quantity</span></dt>
+                <dd>
+                    <span>{{ salesItems.quantity }}</span>
+                </dd>
+                <dt><span>Total</span></dt>
+                <dd>
+                    <span>{{ salesItems.total }}</span>
+                </dd>
+                <dt><span>Item Code</span></dt>
+                <dd>
+                    <div *ngIf="salesItems.itemCode">
+                        <a [routerLink]="['/inventory', salesItems.itemCode?.id, 'view']">{{ salesItems.itemCode?.itemCode }}</a>
+                    </div>
+                </dd>
+                <dt><span>Sales Code</span></dt>
+                <dd>
+                    <div *ngIf="salesItems.salesCode">
+                        <a [routerLink]="['/sales', salesItems.salesCode?.id, 'view']">{{ salesItems.salesCode?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sales-items', salesItems.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

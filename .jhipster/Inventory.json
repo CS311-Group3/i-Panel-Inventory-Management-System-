@@ -1,0 +1,50 @@
+{
+  "name": "Inventory",
+  "fields": [
+    {
+      "fieldName": "itemCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "itemName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "category",
+      "fieldType": "Category",
+      "fieldValues": "CAT1,CAT2"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "reorderLevel",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sellingPrice",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "buyingPrice",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200710104156",
+  "entityTableName": "inventory",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,125 @@
+package com.mycompany.myapp.domain;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
+
+import java.io.Serializable;
+
+/**
+ * A CustomerDetails.
+ */
+@Entity
+@Table(name = "customer_details")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+public class CustomerDetails implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "customer_name")
+    private String customerName;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "phone")
+    private String phone;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public CustomerDetails customerName(String customerName) {
+        this.customerName = customerName;
+        return this;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public CustomerDetails email(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public CustomerDetails address(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public CustomerDetails phone(String phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof CustomerDetails)) {
+            return false;
+        }
+        return id != null && id.equals(((CustomerDetails) o).id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31;
+    }
+
+    // prettier-ignore
+    @Override
+    public String toString() {
+        return "CustomerDetails{" +
+            "id=" + getId() +
+            ", customerName='" + getCustomerName() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", address='" + getAddress() + "'" +
+            ", phone='" + getPhone() + "'" +
+            "}";
+    }
+}

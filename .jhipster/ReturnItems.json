@@ -1,0 +1,36 @@
+{
+  "name": "ReturnItems",
+  "fields": [
+    {
+      "fieldName": "quantity",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventory",
+      "otherEntityRelationshipName": "returnItems",
+      "relationshipName": "itemCode",
+      "otherEntityField": "itemCode"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "returnsData",
+      "otherEntityRelationshipName": "items",
+      "relationshipName": "returnCode",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200710104956",
+  "entityTableName": "return_items",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

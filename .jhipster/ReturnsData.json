@@ -1,0 +1,36 @@
+{
+  "name": "ReturnsData",
+  "fields": [
+    {
+      "fieldName": "dateOfReturn",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "sales",
+      "otherEntityRelationshipName": "returnsData",
+      "relationshipName": "salesCode",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "returnItems",
+      "otherEntityRelationshipName": "returnCode",
+      "relationshipName": "items"
+    }
+  ],
+  "changelogDate": "20200710104856",
+  "entityTableName": "returns_data",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

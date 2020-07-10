@@ -1,0 +1,44 @@
+{
+  "name": "PurchaseItems",
+  "fields": [
+    {
+      "fieldName": "unitPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventory",
+      "otherEntityRelationshipName": "purchaseItems",
+      "relationshipName": "itemCode",
+      "otherEntityField": "itemCode"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "purchases",
+      "otherEntityRelationshipName": "items",
+      "relationshipName": "purchaseCode",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200710104456",
+  "entityTableName": "purchase_items",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

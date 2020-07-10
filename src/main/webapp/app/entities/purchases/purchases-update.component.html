@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-purchases-heading">Create or edit a Purchases</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_total">Total</label>
+                    <input type="number" class="form-control" name="total" id="field_total"
+                           formControlName="total"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_discounts">Discounts</label>
+                    <input type="number" class="form-control" name="discounts" id="field_discounts"
+                           formControlName="discounts"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateOfPurchase">Date Of Purchase</label>
+                    <div class="input-group">
+                        <input id="field_dateOfPurchase" type="text" class="form-control" name="dateOfPurchase" ngbDatepicker #dateOfPurchaseDp="ngbDatepicker" formControlName="dateOfPurchase"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateOfPurchaseDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_vendorID">Vendor ID</label>
+                    <select class="form-control" id="field_vendorID" name="vendorID" formControlName="vendorID">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vendorOption.id === editForm.get('vendorID')!.value?.id ? editForm.get('vendorID')!.value : vendorOption" *ngFor="let vendorOption of vendorids; trackBy: trackById">{{ vendorOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

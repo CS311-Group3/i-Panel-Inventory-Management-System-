@@ -1,0 +1,44 @@
+{
+  "name": "Purchases",
+  "fields": [
+    {
+      "fieldName": "total",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "discounts",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "dateOfPurchase",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "vendor",
+      "otherEntityRelationshipName": "purchases",
+      "relationshipName": "vendorID",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "purchaseItems",
+      "otherEntityRelationshipName": "purchaseCode",
+      "relationshipName": "items"
+    }
+  ],
+  "changelogDate": "20200710104356",
+  "entityTableName": "purchases",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

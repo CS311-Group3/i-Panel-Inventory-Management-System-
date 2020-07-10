@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="returnItems">
+            <h2><span>Return Items</span> {{ returnItems.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Quantity</span></dt>
+                <dd>
+                    <span>{{ returnItems.quantity }}</span>
+                </dd>
+                <dt><span>Item Code</span></dt>
+                <dd>
+                    <div *ngIf="returnItems.itemCode">
+                        <a [routerLink]="['/inventory', returnItems.itemCode?.id, 'view']">{{ returnItems.itemCode?.itemCode }}</a>
+                    </div>
+                </dd>
+                <dt><span>Return Code</span></dt>
+                <dd>
+                    <div *ngIf="returnItems.returnCode">
+                        <a [routerLink]="['/returns-data', returnItems.returnCode?.id, 'view']">{{ returnItems.returnCode?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/return-items', returnItems.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

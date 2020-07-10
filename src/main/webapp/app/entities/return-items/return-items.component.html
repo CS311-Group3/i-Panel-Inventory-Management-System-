@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span>Return Items</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-return-items" [routerLink]="['/return-items/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Return Items
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="returnItems?.length === 0">
+        <span>No returnItems found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="returnItems && returnItems.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Quantity</span></th>
+                    <th scope="col" ><span>Item Code</span></th>
+                    <th scope="col" ><span>Return Code</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let returnItems of returnItems ;trackBy: trackId">
+                    <td><a [routerLink]="['/return-items', returnItems.id, 'view']">{{ returnItems.id }}</a></td>
+                    <td>{{ returnItems.quantity }}</td>
+                    <td>
+                        <div *ngIf="returnItems.itemCode">
+                            <a [routerLink]="['/inventory', returnItems.itemCode?.id, 'view']" >{{ returnItems.itemCode?.itemCode }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="returnItems.returnCode">
+                            <a [routerLink]="['/returns-data', returnItems.returnCode?.id, 'view']" >{{ returnItems.returnCode?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/return-items', returnItems.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/return-items', returnItems.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(returnItems)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
