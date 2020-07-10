@@ -10,25 +10,25 @@
         <form class="form" role="form">
             <div class="form-group">
                 <label class="username-label">Item Name : </label>
-                <input type="text" class="form-control" value="Item 1" disabled="">
+                <input type="text" class="form-control" value="{{purchaseService.getName()}}" disabled="">
             </div>
 
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
                         <label class="username-label">Unit Price : </label>
-                        <input type="text" class="form-control" value="10" disabled="">
+                        <input type="text" class="form-control" value="{{purchaseService.getBuyingPrice()}}">
                     </div>
                     <div class="col-md-6">
                         <label class="username-label">Quantity : </label>
-                        <input type="text" class="form-control" value="10">
+                        <input type="text" class="form-control" (input)="getTotal()" formControlName="quantity">
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
                 <blockquote class="blockquote">
-                    <p class="mb-0">Total : 100</p>
+                    <p class="mb-0">Total : {{total}}</p>
                 </blockquote>
             </div>
 

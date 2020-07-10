@@ -15,4 +15,6 @@ import java.util.List;
 public interface PurchaseItemsRepository extends JpaRepository<PurchaseItems, Long> {
 
     List<PurchaseItems> findAllByPurchaseCode(long id);
+
+    List<PurchaseItems> findAllByItemCodeContains(String code);
 }

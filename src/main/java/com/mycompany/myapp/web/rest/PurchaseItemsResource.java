@@ -91,14 +91,15 @@ public class PurchaseItemsResource {
     }
 
 
-//    -----------------------------get purchase items by purchase code--------------------------------
-    @GetMapping("/purchase-items/search-by-purchaseID")
+    //    -----------------------------get purchase items by purchase code--------------------------------
+    @GetMapping("/purchase-items/search-by-purchaseID/{id}")
     public List<PurchaseItems> getAllPurchaseItemsByPurchaseCode(@PathVariable long id) {
         log.debug("REST request to get all PurchaseItems");
         return purchaseItemsRepository.findAllByPurchaseCode(id);
     }
 
 //    -------------------------------------------------------------------------
+
     /**
      * {@code GET  /purchase-items/:id} : get the "id" purchaseItems.
      *

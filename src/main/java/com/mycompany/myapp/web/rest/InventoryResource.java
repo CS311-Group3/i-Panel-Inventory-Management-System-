@@ -90,6 +90,12 @@ public class InventoryResource {
         return inventoryRepository.findAll();
     }
 
+    @GetMapping("/inventories-by-code/{code}")
+    public List<Inventory> getAllInventoryItemsByItemCode(@PathVariable String code) {
+        log.debug("REST request to get all Inventories");
+        return inventoryRepository.findAllByItemCodeContains(code);
+    }
+
     /**
      * {@code GET  /inventories/:id} : get the "id" inventory.
      *
