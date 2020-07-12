@@ -16,133 +16,148 @@
                     </span>
                 </a>
             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="login-page" (click)="collapseNavbar()">
+
+
+            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
+                    <span>
+                        <fa-icon icon="th-list"></fa-icon>
+                        <span>
+                            Entities
+                        </span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+
+            <li >
+                                <a class="dropdown-item" routerLink="login-page" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Login Page</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="purchase-cart" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="purchase-cart" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Purchase Cart</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="purchase-checkout" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="purchase-checkout" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Purchase Checkout</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="sales-cart" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="sales-cart" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Sales Cart</span>
                                 </a>
                             </li>
 
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="customer-details-sales" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="customer-details-sales" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Customer Details</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="vendor-details" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="vendor-details" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Vendor Details</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="sales-checkout" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="sales-checkout" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Sales Checkout</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="returns-cart" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="returns-cart" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Returns Cart</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="returns-checkout" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="returns-checkout" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Returns Checkout</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="notifications" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="notifications" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Notifications</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="purchase-view" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="purchase-view" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Purchase View</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="sales-view" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="sales-view" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Sales View</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="returns-view" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="returns-view" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Returns View</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="sales-menu" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="sales-menu" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Sales Menu</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="purchase-menu" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="purchase-menu" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Purchase Menu</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="returns-menu" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="returns-menu" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Returns Menu</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="inventory-view" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="inventory-view" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Inventory View</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="admin-menu" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="admin-menu" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Admin Menu</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="view-users" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="view-users" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>View Users</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="create-user" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="create-user" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>Create User</span>
                                 </a>
                             </li>
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="system-stats" (click)="collapseNavbar()">
+            <li >
+                                <a class="dropdown-item" routerLink="system-stats" (click)="collapseNavbar()">
                                     <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
                                     <span>System Stats</span>
                                 </a>
                             </li>
+                </ul>
+            </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
