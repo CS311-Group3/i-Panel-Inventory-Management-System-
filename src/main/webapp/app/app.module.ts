@@ -26,7 +26,8 @@ import { IpanelAppReturnsMenuModule } from './Pages/Returns/returns-menu/returns
 import { IpanelAppInventoryViewModule } from './Pages/Inventory/inventory-view/inventory-view.module';
 import { IpanelAppAdminMenuModule } from './Pages/AdminDashboard/admin-menu/admin-menu.module';
 import { IpanelAppViewUsersModule } from './Pages/AdminDashboard/view-users/view-users.module';
-import { IpanelAppCreateUserModule } from './create-user/create-user.module';
+import { IpanelAppCreateUserModule } from './Pages/AdminDashboard/create-user/create-user.module';
+import { IpanelAppSystemStatsModule } from './Pages/AdminDashboard/system-stats/system-stats.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -61,6 +62,7 @@ import { BuyPopupComponent } from "app/Pages/Purchase/buy-popup/buy-popup.compon
     IpanelAppAdminMenuModule,
     IpanelAppViewUsersModule,
     IpanelAppCreateUserModule,
+    IpanelAppSystemStatsModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     IpanelEntityModule,
     IpanelAppRoutingModule

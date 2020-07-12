@@ -3,15 +3,15 @@ import { RouterModule } from '@angular/router';
 
 import { IpanelSharedModule } from '../../../shared/shared.module';
 
-import { CREATE_USER_ROUTE, CreateUserComponent } from './index';
+import { SYSTEM_STATS_ROUTE, SystemStatsComponent } from './index';
 
 @NgModule({
     imports: [
       IpanelSharedModule,
-      RouterModule.forRoot([ CREATE_USER_ROUTE ], { useHash: true })
+      RouterModule.forRoot([ SYSTEM_STATS_ROUTE ], { useHash: true })
     ],
     declarations: [
-      CreateUserComponent,
+      SystemStatsComponent,
     ],
     entryComponents: [
     ],
@@ -19,4 +19,4 @@ import { CREATE_USER_ROUTE, CreateUserComponent } from './index';
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class IpanelAppCreateUserModule {}
+export class IpanelAppSystemStatsModule {}
