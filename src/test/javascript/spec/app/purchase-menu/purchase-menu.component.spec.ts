@@ -1,0 +1,3 @@
+describe('PurchaseMenuComponent Tests', () => {
+
+});

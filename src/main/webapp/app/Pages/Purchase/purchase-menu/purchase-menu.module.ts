@@ -3,15 +3,15 @@ import { RouterModule } from '@angular/router';
 
 import { IpanelSharedModule } from '../../../shared/shared.module';
 
-import { SALES_MENU_ROUTE, SalesMenuComponent } from './index';
+import { PURCHASE_MENU_ROUTE, PurchaseMenuComponent } from './index';
 
 @NgModule({
     imports: [
       IpanelSharedModule,
-      RouterModule.forRoot([ SALES_MENU_ROUTE ], { useHash: true })
+      RouterModule.forRoot([ PURCHASE_MENU_ROUTE ], { useHash: true })
     ],
     declarations: [
-      SalesMenuComponent,
+      PurchaseMenuComponent,
     ],
     entryComponents: [
     ],
@@ -19,4 +19,4 @@ import { SALES_MENU_ROUTE, SalesMenuComponent } from './index';
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class IpanelAppSalesMenuModule {}
+export class IpanelAppPurchaseMenuModule {}
