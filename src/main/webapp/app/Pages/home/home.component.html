@@ -16,15 +16,15 @@
         <div class="container" align="center">
             <div class="row">
                 <div class="col-md">
-                    <span class="purchases img-fluid rounded "><br><br><br><br><br><h6>Purchases</h6></span>
+                    <span [routerLink]="['purchase-menu']" class="purchases img-fluid rounded "><br><br><br><br><br><h6>Purchases</h6></span>
                 </div>
 
                 <div class="col-md">
-                    <span class="sales img-fluid rounded "><br><br><br><br><br><h6>Sales</h6></span>
+                    <span [routerLink]="['sales-menu']" class="sales img-fluid rounded "><br><br><br><br><br><h6>Sales</h6></span>
                 </div>
 
                 <div class="col-md">
-                    <span class="returns img-fluid rounded "><br><br><br><br><br><h6>Returns</h6></span>
+                    <span [routerLink]="['returns-menu']" class="returns img-fluid rounded "><br><br><br><br><br><h6>Returns</h6></span>
                 </div>
             </div>
         </div>
@@ -40,16 +40,18 @@
     <div class="col-md-10">
         <div class="container" align="center">
             <div class="row">
+
                 <div class="col-md">
-                    <span class="analytics img-fluid rounded "><br><br><br><br><br><h6>Analytics</h6></span>
+                    <span [routerLink]="['notifications']" class="notifications img-fluid rounded "><br><br><br><br><br><h6>Notifications</h6></span>
                 </div>
 
                 <div class="col-md">
-                    <span class="history img-fluid rounded "><br><br><br><br><br><h6>History</h6></span>
+                    <span class="settings img-fluid rounded "><br><br><br><br><br><h6>Settings</h6></span>
                 </div>
 
+
                 <div class="col-md">
-                    <span class="stocks img-fluid rounded "><br><br><br><br><br><h6>Stocks</h6></span>
+                    <span [routerLink]="['inventory-view']" class="stocks img-fluid rounded "><br><br><br><br><br><h6>Stocks</h6></span>
                 </div>
             </div>
         </div>
@@ -65,13 +67,14 @@
     <div class="col-md-10">
         <div class="container" align="center">
             <div class="row">
-                <div class="col-md">
-                    <span class="notifications img-fluid rounded "><br><br><br><br><br><h6>Notifications</h6></span>
+                <div class="col-md" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                    <span [routerLink]="['admin-menu']" class="analytics img-fluid rounded "><br><br><br><br><br><h6>Admin Dashboard</h6></span>
                 </div>
 
-                <div class="col-md">
-                    <span class="settings img-fluid rounded "><br><br><br><br><br><h6>Settings</h6></span>
-                </div>
+<!--                <div class="col-md">-->
+<!--                    <span [routerLink]="['']" class="history img-fluid rounded "><br><br><br><br><br><h6>History</h6></span>-->
+<!--                </div>-->
+
 
                 <div class="col-md">
                     <span class="logout img-fluid rounded "><br><br><br><br><br><h6>Logout</h6></span>
