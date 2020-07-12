@@ -23,6 +23,7 @@
     <include file="config/liquibase/changelog/20200710104756_added_entity_SalesItems.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200710104856_added_entity_ReturnsData.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200710104956_added_entity_ReturnItems.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200712085730_added_entity_UserDetails.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20200710104356_added_entity_constraints_Purchases.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200710104456_added_entity_constraints_PurchaseItems.xml" relativeToChangelogFile="false"/>
@@ -30,5 +31,6 @@
     <include file="config/liquibase/changelog/20200710104756_added_entity_constraints_SalesItems.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200710104856_added_entity_constraints_ReturnsData.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200710104956_added_entity_constraints_ReturnItems.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200712085730_added_entity_constraints_UserDetails.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -40,6 +40,10 @@ import { RouterModule } from '@angular/router';
         path: 'return-items',
         loadChildren: () => import('./return-items/return-items.module').then(m => m.IpanelReturnItemsModule),
       },
+      {
+        path: 'user-details',
+        loadChildren: () => import('./user-details/user-details.module').then(m => m.IpanelUserDetailsModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

@@ -57,6 +57,7 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.ReturnsData.class.getName());
             createCache(cm, com.mycompany.myapp.domain.ReturnsData.class.getName() + ".items");
             createCache(cm, com.mycompany.myapp.domain.ReturnItems.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.UserDetails.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
