@@ -125,6 +125,18 @@
                                     <span>Admin Menu</span>
                                 </a>
                             </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                <a class="nav-link" routerLink="view-users" (click)="collapseNavbar()">
+                                    <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
+                                    <span>View Users</span>
+                                </a>
+                            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                <a class="nav-link" routerLink="create-user" (click)="collapseNavbar()">
+                                    <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
+                                    <span>Create User</span>
+                                </a>
+                            </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
