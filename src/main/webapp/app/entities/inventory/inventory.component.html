@@ -21,20 +21,20 @@
     <div class="table-responsive" id="entities" *ngIf="inventories && inventories.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr>
-                    <th scope="col" ><span>ID</span></th>
-                    <th scope="col" ><span>Item Code</span></th>
-                    <th scope="col" ><span>Item Name</span></th>
-                    <th scope="col" ><span>Category</span></th>
-                    <th scope="col" ><span>Description</span></th>
-                    <th scope="col" ><span>Quantity</span></th>
-                    <th scope="col" ><span>Reorder Level</span></th>
-                    <th scope="col" ><span>Selling Price</span></th>
-                    <th scope="col" ><span>Buying Price</span></th>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="itemCode"><span>Item Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="itemName"><span>Item Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="category"><span>Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span>Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantity"><span>Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reorderLevel"><span>Reorder Level</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sellingPrice"><span>Selling Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="buyingPrice"><span>Buying Price</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
                 <tr *ngFor="let inventory of inventories ;trackBy: trackId">
                     <td><a [routerLink]="['/inventory', inventory.id, 'view']">{{ inventory.id }}</a></td>
                     <td>{{ inventory.itemCode }}</td>

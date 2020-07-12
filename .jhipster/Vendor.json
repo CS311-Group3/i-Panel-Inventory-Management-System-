@@ -22,7 +22,7 @@
   "changelogDate": "20200710104256",
   "entityTableName": "vendor",
   "dto": "no",
-  "pagination": "no",
+  "pagination": "infinite-scroll",
   "service": "no",
   "jpaMetamodelFiltering": false,
   "fluentMethods": true,

@@ -39,7 +39,7 @@
   "changelogDate": "20200710104156",
   "entityTableName": "inventory",
   "dto": "no",
-  "pagination": "no",
+  "pagination": "infinite-scroll",
   "service": "no",
   "jpaMetamodelFiltering": false,
   "fluentMethods": true,

@@ -25,7 +25,7 @@
   "changelogDate": "20200710104856",
   "entityTableName": "returns_data",
   "dto": "no",
-  "pagination": "no",
+  "pagination": "infinite-scroll",
   "service": "no",
   "jpaMetamodelFiltering": false,
   "fluentMethods": true,

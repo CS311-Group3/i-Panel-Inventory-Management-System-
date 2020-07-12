@@ -21,15 +21,15 @@
     <div class="table-responsive" id="entities" *ngIf="returnItems && returnItems.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr>
-                    <th scope="col" ><span>ID</span></th>
-                    <th scope="col" ><span>Quantity</span></th>
-                    <th scope="col" ><span>Item Code</span></th>
-                    <th scope="col" ><span>Return Code</span></th>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantity"><span>Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="itemCode.itemCode"><span>Item Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="returnCode.id"><span>Return Code</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
                 <tr *ngFor="let returnItems of returnItems ;trackBy: trackId">
                     <td><a [routerLink]="['/return-items', returnItems.id, 'view']">{{ returnItems.id }}</a></td>
                     <td>{{ returnItems.quantity }}</td>

@@ -33,7 +33,7 @@
   "changelogDate": "20200710104456",
   "entityTableName": "purchase_items",
   "dto": "no",
-  "pagination": "no",
+  "pagination": "infinite-scroll",
   "service": "no",
   "jpaMetamodelFiltering": false,
   "fluentMethods": true,

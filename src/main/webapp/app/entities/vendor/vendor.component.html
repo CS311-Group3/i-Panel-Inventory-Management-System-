@@ -21,16 +21,16 @@
     <div class="table-responsive" id="entities" *ngIf="vendors && vendors.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr>
-                    <th scope="col" ><span>ID</span></th>
-                    <th scope="col" ><span>Vendor Name</span></th>
-                    <th scope="col" ><span>Phone</span></th>
-                    <th scope="col" ><span>Email</span></th>
-                    <th scope="col" ><span>Address</span></th>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="vendorName"><span>Vendor Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="phone"><span>Phone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span>Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address"><span>Address</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
                 <tr *ngFor="let vendor of vendors ;trackBy: trackId">
                     <td><a [routerLink]="['/vendor', vendor.id, 'view']">{{ vendor.id }}</a></td>
                     <td>{{ vendor.vendorName }}</td>

@@ -21,14 +21,14 @@
     <div class="table-responsive" id="entities" *ngIf="returnsData && returnsData.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr>
-                    <th scope="col" ><span>ID</span></th>
-                    <th scope="col" ><span>Date Of Return</span></th>
-                    <th scope="col" ><span>Sales Code</span></th>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateOfReturn"><span>Date Of Return</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="salesCode.id"><span>Sales Code</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
                 <tr *ngFor="let returnsData of returnsData ;trackBy: trackId">
                     <td><a [routerLink]="['/returns-data', returnsData.id, 'view']">{{ returnsData.id }}</a></td>
                     <td>{{ returnsData.dateOfReturn | date:'mediumDate' }}</td>

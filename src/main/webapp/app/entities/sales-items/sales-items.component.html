@@ -21,17 +21,17 @@
     <div class="table-responsive" id="entities" *ngIf="salesItems && salesItems.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr>
-                    <th scope="col" ><span>ID</span></th>
-                    <th scope="col" ><span>Unit Price</span></th>
-                    <th scope="col" ><span>Quantity</span></th>
-                    <th scope="col" ><span>Total</span></th>
-                    <th scope="col" ><span>Item Code</span></th>
-                    <th scope="col" ><span>Sales Code</span></th>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unitPrice"><span>Unit Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantity"><span>Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="total"><span>Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="itemCode.itemCode"><span>Item Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="salesCode.id"><span>Sales Code</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
                 <tr *ngFor="let salesItems of salesItems ;trackBy: trackId">
                     <td><a [routerLink]="['/sales-items', salesItems.id, 'view']">{{ salesItems.id }}</a></td>
                     <td>{{ salesItems.unitPrice }}</td>

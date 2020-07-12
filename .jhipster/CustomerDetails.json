@@ -22,7 +22,7 @@
   "changelogDate": "20200710104556",
   "entityTableName": "customer_details",
   "dto": "no",
-  "pagination": "no",
+  "pagination": "infinite-scroll",
   "service": "no",
   "jpaMetamodelFiltering": false,
   "fluentMethods": true,
