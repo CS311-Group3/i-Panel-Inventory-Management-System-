@@ -47,6 +47,30 @@
                                     <span>Customer Details</span>
                                 </a>
                             </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                <a class="nav-link" routerLink="vendor-details" (click)="collapseNavbar()">
+                                    <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
+                                    <span>Vendor Details</span>
+                                </a>
+                            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                <a class="nav-link" routerLink="sales-checkout" (click)="collapseNavbar()">
+                                    <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
+                                    <span>Sales Checkout</span>
+                                </a>
+                            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                <a class="nav-link" routerLink="returns-cart" (click)="collapseNavbar()">
+                                    <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
+                                    <span>Returns Cart</span>
+                                </a>
+                            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                                <a class="nav-link" routerLink="returns-checkout" (click)="collapseNavbar()">
+                                    <fa-icon icon="hand-spock" [fixedWidth]="true"></fa-icon>
+                                    <span>Returns Checkout</span>
+                                </a>
+                            </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">

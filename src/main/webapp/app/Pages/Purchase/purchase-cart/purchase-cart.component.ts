@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BuyPopupComponent} from "app/buy-popup/buy-popup.component";
+import {BuyPopupComponent} from "app/Pages/Purchase/buy-popup/buy-popup.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({

@@ -12,13 +12,17 @@ import { IpanelAppPurchaseCartModule } from './Pages/Purchase/purchase-cart/purc
 import { IpanelAppPurchaseCheckoutModule } from './Pages/Purchase/purchase-checkout/purchase-checkout.module';
 import { IpanelAppSalesCartModule } from './Pages/Sales/sales-cart/sales-cart.module';
 import { IpanelAppCustomerDetailsModule } from './Pages/Sales/customer-details/customer-details.module';
+import { IpanelAppVendorDetailsModule } from './Pages/Purchase/vendor-details/vendor-details.module';
+import { IpanelAppSalesCheckoutModule } from './Pages/Sales/sales-checkout/sales-checkout.module';
+import { IpanelAppReturnsCartModule } from './Pages/Returns/returns-cart/returns-cart.module';
+import { IpanelAppReturnsCheckoutModule } from './Pages/Returns/returns-checkout/returns-checkout.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ErrorComponent } from './layouts/error/error.component';
-import { BuyPopupComponent } from "app/buy-popup/buy-popup.component";
+import { BuyPopupComponent } from "app/Pages/Purchase/buy-popup/buy-popup.component";
 
 @NgModule({
   imports: [
@@ -31,6 +35,10 @@ import { BuyPopupComponent } from "app/buy-popup/buy-popup.component";
     IpanelAppPurchaseCheckoutModule,
     IpanelAppSalesCartModule,
     IpanelAppCustomerDetailsModule,
+    IpanelAppVendorDetailsModule,
+    IpanelAppSalesCheckoutModule,
+    IpanelAppReturnsCartModule,
+    IpanelAppReturnsCheckoutModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     IpanelEntityModule,
     IpanelAppRoutingModule
