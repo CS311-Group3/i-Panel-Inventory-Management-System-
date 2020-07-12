@@ -1,0 +1,3 @@
+describe('AdminMenuComponent Tests', () => {
+
+});

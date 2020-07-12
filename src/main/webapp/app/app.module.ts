@@ -24,6 +24,7 @@ import { IpanelAppSalesMenuModule } from './Pages/Sales/sales-menu/sales-menu.mo
 import { IpanelAppPurchaseMenuModule } from './Pages/Purchase/purchase-menu/purchase-menu.module';
 import { IpanelAppReturnsMenuModule } from './Pages/Returns/returns-menu/returns-menu.module';
 import { IpanelAppInventoryViewModule } from './Pages/Inventory/inventory-view/inventory-view.module';
+import { IpanelAppAdminMenuModule } from './Pages/AdminDashboard/admin-menu/admin-menu.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -55,6 +56,7 @@ import { BuyPopupComponent } from "app/Pages/Purchase/buy-popup/buy-popup.compon
     IpanelAppPurchaseMenuModule,
     IpanelAppReturnsMenuModule,
     IpanelAppInventoryViewModule,
+    IpanelAppAdminMenuModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     IpanelEntityModule,
     IpanelAppRoutingModule
