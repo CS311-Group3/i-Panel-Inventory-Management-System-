@@ -3,15 +3,15 @@ import { RouterModule } from '@angular/router';
 
 import { IpanelSharedModule } from '../../../shared/shared.module';
 
-import { RETURNS_MENU_ROUTE, ReturnsMenuComponent } from './index';
+import { INVENTORY_VIEW_ROUTE, InventoryViewComponent } from './index';
 
 @NgModule({
     imports: [
       IpanelSharedModule,
-      RouterModule.forRoot([ RETURNS_MENU_ROUTE ], { useHash: true })
+      RouterModule.forRoot([ INVENTORY_VIEW_ROUTE ], { useHash: true })
     ],
     declarations: [
-      ReturnsMenuComponent,
+      InventoryViewComponent,
     ],
     entryComponents: [
     ],
@@ -19,4 +19,4 @@ import { RETURNS_MENU_ROUTE, ReturnsMenuComponent } from './index';
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class IpanelAppReturnsMenuModule {}
+export class IpanelAppInventoryViewModule {}
