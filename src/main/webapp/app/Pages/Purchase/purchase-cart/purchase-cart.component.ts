@@ -15,24 +15,26 @@ import {PurchaseService} from "app/Pages/Purchase/purchase.service";
   ]
 })
 export class PurchaseCartComponent implements OnInit {
-  itemcode:string;
+  itemcode: string;
   message: string;
 
-
+  pop?:BuyPopupComponent;
   inventoryItems?: IInventory[] = [];
 
-  constructor(private modalService: NgbModal, protected purchaseItemsService: PurchaseItemsService, protected inventoryService: InventoryService,protected purchaseService:PurchaseService) {
+  constructor(private modalService: NgbModal, protected purchaseItemsService: PurchaseItemsService, protected inventoryService: InventoryService, protected purchaseService: PurchaseService) {
     this.message = 'PurchaseCartComponent message';
-    this.itemcode="";
+    this.itemcode = "";
   }
 
 
   ngOnInit(): void {
   }
 
-  addToCart(item:IInventory): void {
+  addToCart(item: IInventory): void {
     this.purchaseService.selectedItem = item;
-    const modalRef = this.modalService.open(BuyPopupComponent);
+    const modalRef = this.modalService.open(this.pop);
+
+
   }
 
   public getItemsByItemCode(id: string): void {
