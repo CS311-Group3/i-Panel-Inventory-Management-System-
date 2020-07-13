@@ -14,7 +14,8 @@
                 </div>
                 <div class="col-md-3">
                     <label class="col-form-label">Item Code : </label>
-                    <input class="form-control" type="text" [(ngModel)]="code" (input)="search(code)"> <label class="space"></label>
+                    <input class="form-control" type="text" [(ngModel)]="code" (input)="search(code)"> <label
+                    class="space"></label>
                 </div>
             </div>
             <br>
@@ -34,7 +35,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr *ngFor="let item of items" class="table-secondary" (click)="addToCart(item)">
+                    <tr *ngFor="let item of searchItems" class="table-secondary" (click)="addToCart(item)">
                         <td>{{item.itemCode}}</td>
                         <td>{{item.itemName}}</td>
                         <td>{{item.buyingPrice}}</td>
@@ -47,57 +48,30 @@
             </div>
             <!-- /search -->
             <br>
+
             <!-- cart -->
             <h6>Cart : </h6>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">Item ID</th>
-                    <th scope="col">Item Name</th>
-                    <th scope="col">Unit Price</th>
-                    <th scope="col">Quantity</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="table-secondary">
-                    <td>001</td>
-                    <td>Item 1</td>
-                    <td>Rs.10</td>
-                    <td>10000</td>
-                </tr>
+            <div class="table-responsive my-container" id="matches">
 
-                <tr class="table-secondary">
-                    <td>002</td>
-                    <td>Item 2</td>
-                    <td>Rs.30</td>
-                    <td>1000</td>
-                </tr>
-                <tr class="table-secondary">
-                    <td>003</td>
-                    <td>Item 3</td>
-                    <td>Rs.90</td>
-                    <td>12000</td>
-                </tr>
-                <tr class="table-secondary">
-                    <td>004</td>
-                    <td>Item 4</td>
-                    <td>Rs.120</td>
-                    <td>1000</td>
-                </tr>
-                <tr class="table-secondary">
-                    <td>005</td>
-                    <td>Item 5</td>
-                    <td>Rs.100</td>
-                    <td>100000</td>
-                </tr>
-                <tr class="table-secondary">
-                    <td>006</td>
-                    <td>Item 6</td>
-                    <td>Rs.200</td>
-                    <td>20000</td>
-                </tr>
-                </tbody>
-            </table>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Item ID</th>
+                        <th scope="col">Unit Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of purchaseData.selectedItems" class="table-secondary">
+                        <td>{{item.itemCode.itemCode}}</td>
+                        <td>{{item.itemCode.buyingPrice}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.total}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
             <!--        /cart -->
             <br>
         </div>

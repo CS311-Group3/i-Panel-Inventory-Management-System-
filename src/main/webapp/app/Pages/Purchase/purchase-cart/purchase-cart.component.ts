@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BuyPopupComponent} from "app/Pages/Purchase/buy-popup/buy-popup.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {InventoryService} from "app/entities/inventory/inventory.service";
-import {IInventory} from "app/shared/model/inventory.model";
+import {IInventory, Inventory} from "app/shared/model/inventory.model";
 import {HttpResponse} from "@angular/common/http";
 import {PurchasesService} from "app/entities/purchases/purchases.service";
 import {PurchaseData} from "app/Pages/Purchase/purchase-data";
@@ -17,14 +17,14 @@ import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 export class PurchaseCartComponent implements OnInit {
 
   code: string;
-  items?:IInventory[] = [];
+  searchItems?:Inventory[] = [];
 
-  constructor(private modalService:NgbModal,protected inventoryService:InventoryService,protected purchaseData:PurchaseData) {
+  constructor(private modalService:NgbModal,protected inventoryService:InventoryService,public purchaseData:PurchaseData) {
     this.code = '';
   }
 
   search(code:string):void{
-    this.inventoryService.findAllByCode(code).subscribe((res: HttpResponse<IInventory[]>) => (this.items = res.body || []));
+    this.inventoryService.findAllByCode(code).subscribe((res: HttpResponse<IInventory[]>) => (this.searchItems = res.body || []));
   }
 
   ngOnInit(): void {

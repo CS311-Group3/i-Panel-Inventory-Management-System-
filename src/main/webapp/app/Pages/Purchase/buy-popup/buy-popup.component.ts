@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {PurchaseData} from "app/Pages/Purchase/purchase-data";
+import {PurchaseItems} from "app/shared/model/purchase-items.model";
 
 @Component({
   selector: 'jhi-buy-popup',
@@ -8,7 +9,7 @@ import {PurchaseData} from "app/Pages/Purchase/purchase-data";
   styleUrls: ['./buy-popup.component.scss']
 })
 export class BuyPopupComponent implements OnInit {
-
+  selectedItem:PurchaseItems = new PurchaseItems();
   total: number;
   units: number;
 
@@ -23,6 +24,15 @@ export class BuyPopupComponent implements OnInit {
 
   calculateTotal(): void {
     this.total = this.units * this.purchaseData.getReviewItem().buyingPrice;
+  }
+
+  addToCart():void{
+    this.selectedItem.quantity = this.units;
+    this.selectedItem.total = this.total;
+    this.selectedItem.itemCode = this.purchaseData.reviewItem;
+
+    this.purchaseData.addToCart(this.selectedItem);
+    this.activeModal.close();
   }
 
 }
