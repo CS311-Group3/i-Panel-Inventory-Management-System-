@@ -10,7 +10,7 @@
         <form class="form" role="form">
             <div class="form-group">
                 <label class="username-label">Item Name : </label>
-                <input type="text" class="form-control" value="Item 1" disabled="">
+                <input type="text" class="form-control" value="{{purchaseData.getReviewItem().itemName}}" disabled="">
             </div>
 
             <div class="form-group">
@@ -21,14 +21,14 @@
                     </div>
                     <div class="col-md-6">
                         <label class="username-label">Quantity : </label>
-                        <input type="text" class="form-control" value="10">
+                        <input [(ngModel)]="units" [ngModelOptions]="{standalone:true}" (input)="calculateTotal()" type="text" class="form-control" value="{{units}}">
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
                 <blockquote class="blockquote">
-                    <p class="mb-0">Total : 100</p>
+                    <p class="mb-0">Total : {{total}}</p>
                 </blockquote>
             </div>
 

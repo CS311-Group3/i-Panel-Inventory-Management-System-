@@ -5,13 +5,13 @@ import {IInventory, Inventory} from "app/shared/model/inventory.model";
 @Injectable({providedIn : 'root'})
 export class PurchaseData {
 
-  items?:IInventory[] = [];
-  reviewItem?:IInventory;
-
+  items?:Inventory[] = [];
+  reviewItem:Inventory;
   constructor() {
+    this.reviewItem = new Inventory();
   }
 
-   getReviewItem():IInventory{
+   getReviewItem():any{
     if (this.reviewItem != null ){
       return this.reviewItem;
     }

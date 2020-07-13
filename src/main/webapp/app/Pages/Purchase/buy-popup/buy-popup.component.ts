@@ -9,7 +9,7 @@ import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 })
 export class BuyPopupComponent implements OnInit {
 
-  total :number;
+  total: number;
   units: number;
 
   constructor(public activeModal: NgbActiveModal, public purchaseData: PurchaseData) {
@@ -21,10 +21,8 @@ export class BuyPopupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  calculateTotal() :void{
-    if (this.purchaseData.reviewItem !== null) {
-      // this.total = this.units * this.purchaseData.reviewItem.buyingPrice;
-    }
+  calculateTotal(): void {
+    this.total = this.units * this.purchaseData.getReviewItem().buyingPrice;
   }
 
 }
