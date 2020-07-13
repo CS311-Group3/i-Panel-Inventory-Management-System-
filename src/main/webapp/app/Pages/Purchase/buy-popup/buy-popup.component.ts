@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 
 @Component({
   selector: 'jhi-buy-popup',
@@ -8,7 +9,7 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 })
 export class BuyPopupComponent implements OnInit {
 
-  constructor(public activeModal:NgbActiveModal) { }
+  constructor(public activeModal:NgbActiveModal,public purchaseData:PurchaseData) { }
 
   ngOnInit(): void {
   }

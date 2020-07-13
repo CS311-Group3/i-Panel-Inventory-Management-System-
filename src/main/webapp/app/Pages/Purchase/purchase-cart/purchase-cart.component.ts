@@ -4,6 +4,8 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {InventoryService} from "app/entities/inventory/inventory.service";
 import {IInventory} from "app/shared/model/inventory.model";
 import {HttpResponse} from "@angular/common/http";
+import {PurchasesService} from "app/entities/purchases/purchases.service";
+import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 
 @Component({
   selector: 'jhi-purchase-cart',
@@ -17,7 +19,7 @@ export class PurchaseCartComponent implements OnInit {
   code: string;
   items?:IInventory[] = [];
 
-  constructor(private modalService:NgbModal,protected inventoryService:InventoryService) {
+  constructor(private modalService:NgbModal,protected inventoryService:InventoryService,protected purchaseData:PurchaseData) {
     this.code = '';
   }
 
@@ -28,9 +30,9 @@ export class PurchaseCartComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addToCart():void {
+  addToCart(item : IInventory):void {
     const modalRef = this.modalService.open(BuyPopupComponent);
-
+    // this.purchaseData.add(item);
   }
 
 }
