@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 
@@ -9,9 +9,22 @@ import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 })
 export class BuyPopupComponent implements OnInit {
 
-  constructor(public activeModal:NgbActiveModal,public purchaseData:PurchaseData) { }
+  total :number;
+  units: number;
+
+  constructor(public activeModal: NgbActiveModal, public purchaseData: PurchaseData) {
+    this.total = 0;
+    this.units = 0;
+
+  }
 
   ngOnInit(): void {
+  }
+
+  calculateTotal() :void{
+    if (this.purchaseData.reviewItem !== null) {
+      // this.total = this.units * this.purchaseData.reviewItem.buyingPrice;
+    }
   }
 
 }

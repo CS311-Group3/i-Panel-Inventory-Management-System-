@@ -11,18 +11,20 @@ export class PurchaseData {
   constructor() {
   }
 
-  //  getReviewItem():IInventory{
-  //   if (this.reviewItem != null ){
-  //     return this.reviewItem;
-  //   }
-  //   return new Inventory();
-  // }
-  //
+   getReviewItem():IInventory{
+    if (this.reviewItem != null ){
+      return this.reviewItem;
+    }
+    return new Inventory();
+  }
+
   // public addToCart(item :IInventory){
   //   this.items.push(item);
   // }
   //
-  // public add(item:IInventory){
-  //   this.reviewItem = item;
-  // }
+
+
+  public add(item:IInventory):void{
+    this.reviewItem = item;
+  }
 }
