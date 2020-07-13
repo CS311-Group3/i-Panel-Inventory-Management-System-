@@ -35,4 +35,8 @@ export class InventoryService {
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
+
+  findAllByCode(code :string) : Observable<EntityArrayResponseType> {
+    return this.http.get<IInventory[]>(`${this.resourceUrl+ "-by-code"}/${code}`, { observe: 'response' });
+  }
 }

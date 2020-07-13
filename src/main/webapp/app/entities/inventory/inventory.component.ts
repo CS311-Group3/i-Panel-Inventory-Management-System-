@@ -13,6 +13,9 @@ import { InventoryDeleteDialogComponent } from './inventory-delete-dialog.compon
 @Component({
   selector: 'jhi-inventory',
   templateUrl: './inventory.component.html',
+  styleUrls: [
+    'style.scss'
+  ]
 })
 export class InventoryComponent implements OnInit, OnDestroy {
   inventories: IInventory[];

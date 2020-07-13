@@ -99,6 +99,16 @@ public class InventoryResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+
+
+    @GetMapping("/inventories-by-code/{code}")
+    public List<Inventory> getInventoriesByCode(@PathVariable String code) {
+        log.debug("REST request to get Inventory : {}", code);
+        List<Inventory> inventory = inventoryRepository.findAllByItemCodeContains(code);
+        return inventory;
+    }
+
+
     /**
      * {@code GET  /inventories/:id} : get the "id" inventory.
      *
