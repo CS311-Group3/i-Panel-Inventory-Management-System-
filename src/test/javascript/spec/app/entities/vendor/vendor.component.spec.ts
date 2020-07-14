@@ -4,8 +4,8 @@ import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, convertToParamMap, Data } from '@angular/router';
 
 import { IpanelTestModule } from '../../../test.module';
-import { VendorComponent } from 'app/entities/vendor/vendor.component';
-import { VendorService } from 'app/entities/vendor/vendor.service';
+import { VendorComponent } from 'app/Pages/Purchase/vendor/vendor.component';
+import { VendorService } from 'app/Pages/Purchase/vendor/vendor.service';
 import { Vendor } from 'app/shared/model/vendor.model';
 
 describe('Component Tests', () => {

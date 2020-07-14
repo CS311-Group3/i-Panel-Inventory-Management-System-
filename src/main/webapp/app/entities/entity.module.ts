@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
       },
       {
         path: 'vendor',
-        loadChildren: () => import('./vendor/vendor.module').then(m => m.IpanelVendorModule),
+        loadChildren: () => import('../Pages/Purchase/vendor/vendor.module').then(m => m.IpanelVendorModule),
       },
       {
         path: 'purchases',

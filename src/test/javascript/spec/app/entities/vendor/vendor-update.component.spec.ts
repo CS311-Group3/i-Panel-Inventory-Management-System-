@@ -4,8 +4,8 @@ import { FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 
 import { IpanelTestModule } from '../../../test.module';
-import { VendorUpdateComponent } from 'app/entities/vendor/vendor-update.component';
-import { VendorService } from 'app/entities/vendor/vendor.service';
+import { VendorUpdateComponent } from 'app/Pages/Purchase/vendor/vendor-update.component';
+import { VendorService } from 'app/Pages/Purchase/vendor/vendor.service';
 import { Vendor } from 'app/shared/model/vendor.model';
 
 describe('Component Tests', () => {

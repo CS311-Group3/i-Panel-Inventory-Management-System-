@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
 import { IpanelTestModule } from '../../../test.module';
-import { VendorDetailComponent } from 'app/entities/vendor/vendor-detail.component';
+import { VendorDetailComponent } from 'app/Pages/Purchase/vendor/vendor-detail.component';
 import { Vendor } from 'app/shared/model/vendor.model';
 
 describe('Component Tests', () => {

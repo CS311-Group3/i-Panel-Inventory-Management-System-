@@ -1,6 +1,6 @@
 import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { VendorService } from 'app/entities/vendor/vendor.service';
+import { VendorService } from 'app/Pages/Purchase/vendor/vendor.service';
 import { IVendor, Vendor } from 'app/shared/model/vendor.model';
 
 describe('Service Tests', () => {
