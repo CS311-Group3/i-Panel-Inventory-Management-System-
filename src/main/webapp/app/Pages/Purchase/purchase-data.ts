@@ -8,7 +8,7 @@ export class PurchaseData {
 
   reviewItem:Inventory;
   selectedItems:PurchaseItems[] = [];
-
+  // selectedItemsCode:string[] = [] || undefined;
 
   constructor() {
     this.reviewItem = new Inventory();
@@ -23,8 +23,14 @@ export class PurchaseData {
 
   public addToCart(item:PurchaseItems):void{
     this.selectedItems.push(item)
+    // this.selectedItemsCode.push(item.itemCode);
   }
 
+  // public check(item:PurchaseItems):void{
+  //   if (this.selectedItems.includes(item)){
+  //
+  //   }
+  // }
 
 
   public add(item:IInventory):void{
