@@ -4,8 +4,8 @@ import { FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 
 import { IpanelTestModule } from '../../../test.module';
-import { ReturnsDataUpdateComponent } from 'app/entities/returns-data/returns-data-update.component';
-import { ReturnsDataService } from 'app/entities/returns-data/returns-data.service';
+import { ReturnsDataUpdateComponent } from 'app/Pages/Returns/returns-data/returns-data-update.component';
+import { ReturnsDataService } from 'app/Pages/Returns/returns-data/returns-data.service';
 import { ReturnsData } from 'app/shared/model/returns-data.model';
 
 describe('Component Tests', () => {

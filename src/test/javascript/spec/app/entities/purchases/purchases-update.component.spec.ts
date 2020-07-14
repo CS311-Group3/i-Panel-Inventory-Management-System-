@@ -4,8 +4,8 @@ import { FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 
 import { IpanelTestModule } from '../../../test.module';
-import { PurchasesUpdateComponent } from 'app/entities/purchases/purchases-update.component';
-import { PurchasesService } from 'app/entities/purchases/purchases.service';
+import { PurchasesUpdateComponent } from 'app/Pages/Purchase/purchases-details/purchases-update.component';
+import { PurchasesService } from 'app/Pages/Purchase/purchases-details/purchases.service';
 import { Purchases } from 'app/shared/model/purchases.model';
 
 describe('Component Tests', () => {

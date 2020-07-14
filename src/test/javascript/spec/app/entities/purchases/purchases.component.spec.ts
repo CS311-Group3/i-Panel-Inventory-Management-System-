@@ -4,8 +4,8 @@ import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, convertToParamMap, Data } from '@angular/router';
 
 import { IpanelTestModule } from '../../../test.module';
-import { PurchasesComponent } from 'app/entities/purchases/purchases.component';
-import { PurchasesService } from 'app/entities/purchases/purchases.service';
+import { PurchasesComponent } from 'app/Pages/Purchase/purchases-details/purchases.component';
+import { PurchasesService } from 'app/Pages/Purchase/purchases-details/purchases.service';
 import { Purchases } from 'app/shared/model/purchases.model';
 
 describe('Component Tests', () => {

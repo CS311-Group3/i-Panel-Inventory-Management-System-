@@ -4,8 +4,8 @@ import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, convertToParamMap, Data } from '@angular/router';
 
 import { IpanelTestModule } from '../../../test.module';
-import { ReturnsDataComponent } from 'app/entities/returns-data/returns-data.component';
-import { ReturnsDataService } from 'app/entities/returns-data/returns-data.service';
+import { ReturnsDataComponent } from 'app/Pages/Returns/returns-data/returns-data.component';
+import { ReturnsDataService } from 'app/Pages/Returns/returns-data/returns-data.service';
 import { ReturnsData } from 'app/shared/model/returns-data.model';
 
 describe('Component Tests', () => {

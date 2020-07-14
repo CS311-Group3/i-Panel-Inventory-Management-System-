@@ -6,8 +6,8 @@ import { JhiEventManager } from 'ng-jhipster';
 import { IpanelTestModule } from '../../../test.module';
 import { MockEventManager } from '../../../helpers/mock-event-manager.service';
 import { MockActiveModal } from '../../../helpers/mock-active-modal.service';
-import { SalesDeleteDialogComponent } from 'app/entities/sales/sales-delete-dialog.component';
-import { SalesService } from 'app/entities/sales/sales.service';
+import { SalesDeleteDialogComponent } from 'app/Pages/Sales/sales-details/sales-delete-dialog.component';
+import { SalesService } from 'app/Pages/Sales/sales-details/sales.service';
 
 describe('Component Tests', () => {
   describe('Sales Management Delete Component', () => {

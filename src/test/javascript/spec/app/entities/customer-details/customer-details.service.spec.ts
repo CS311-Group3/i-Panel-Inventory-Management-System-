@@ -1,6 +1,6 @@
 import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { CustomerDetailsService } from 'app/entities/customer-details/customer-details.service';
+import { CustomerDetailsService } from 'app/Pages/Sales/customer-details/customer-details.service';
 import { ICustomerDetails, CustomerDetails } from 'app/shared/model/customer-details.model';
 
 describe('Service Tests', () => {

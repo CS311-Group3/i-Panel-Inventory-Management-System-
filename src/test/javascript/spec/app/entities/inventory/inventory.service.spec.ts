@@ -1,6 +1,6 @@
 import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { InventoryService } from 'app/entities/inventory/inventory.service';
+import { InventoryService } from 'app/Pages/Inventory/inventory/inventory.service';
 import { IInventory, Inventory } from 'app/shared/model/inventory.model';
 import { Category } from 'app/shared/model/enumerations/category.model';
 

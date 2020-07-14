@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
 import { IReturnItems, ReturnItems } from 'app/shared/model/return-items.model';
 import { ReturnItemsService } from './return-items.service';
 import { IInventory } from 'app/shared/model/inventory.model';
-import { InventoryService } from 'app/entities/inventory/inventory.service';
+import { InventoryService } from 'app/Pages/Inventory/inventory/inventory.service';
 import { IReturnsData } from 'app/shared/model/returns-data.model';
-import { ReturnsDataService } from 'app/entities/returns-data/returns-data.service';
+import { ReturnsDataService } from 'app/Pages/Returns/returns-data/returns-data.service';
 
 type SelectableEntity = IInventory | IReturnsData;
 

@@ -4,8 +4,8 @@ import { FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 
 import { IpanelTestModule } from '../../../test.module';
-import { InventoryUpdateComponent } from 'app/entities/inventory/inventory-update.component';
-import { InventoryService } from 'app/entities/inventory/inventory.service';
+import { InventoryUpdateComponent } from 'app/Pages/Inventory/inventory/inventory-update.component';
+import { InventoryService } from 'app/Pages/Inventory/inventory/inventory.service';
 import { Inventory } from 'app/shared/model/inventory.model';
 
 describe('Component Tests', () => {

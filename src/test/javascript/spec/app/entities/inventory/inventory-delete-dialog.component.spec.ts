@@ -6,8 +6,8 @@ import { JhiEventManager } from 'ng-jhipster';
 import { IpanelTestModule } from '../../../test.module';
 import { MockEventManager } from '../../../helpers/mock-event-manager.service';
 import { MockActiveModal } from '../../../helpers/mock-active-modal.service';
-import { InventoryDeleteDialogComponent } from 'app/entities/inventory/inventory-delete-dialog.component';
-import { InventoryService } from 'app/entities/inventory/inventory.service';
+import { InventoryDeleteDialogComponent } from 'app/Pages/Inventory/inventory/inventory-delete-dialog.component';
+import { InventoryService } from 'app/Pages/Inventory/inventory/inventory.service';
 
 describe('Component Tests', () => {
   describe('Inventory Management Delete Component', () => {

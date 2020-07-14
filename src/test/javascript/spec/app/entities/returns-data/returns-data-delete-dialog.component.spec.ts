@@ -6,8 +6,8 @@ import { JhiEventManager } from 'ng-jhipster';
 import { IpanelTestModule } from '../../../test.module';
 import { MockEventManager } from '../../../helpers/mock-event-manager.service';
 import { MockActiveModal } from '../../../helpers/mock-active-modal.service';
-import { ReturnsDataDeleteDialogComponent } from 'app/entities/returns-data/returns-data-delete-dialog.component';
-import { ReturnsDataService } from 'app/entities/returns-data/returns-data.service';
+import { ReturnsDataDeleteDialogComponent } from 'app/Pages/Returns/returns-data/returns-data-delete-dialog.component';
+import { ReturnsDataService } from 'app/Pages/Returns/returns-data/returns-data.service';
 
 describe('Component Tests', () => {
   describe('ReturnsData Management Delete Component', () => {

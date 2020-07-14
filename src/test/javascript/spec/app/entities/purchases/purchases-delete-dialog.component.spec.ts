@@ -6,8 +6,8 @@ import { JhiEventManager } from 'ng-jhipster';
 import { IpanelTestModule } from '../../../test.module';
 import { MockEventManager } from '../../../helpers/mock-event-manager.service';
 import { MockActiveModal } from '../../../helpers/mock-active-modal.service';
-import { PurchasesDeleteDialogComponent } from 'app/entities/purchases/purchases-delete-dialog.component';
-import { PurchasesService } from 'app/entities/purchases/purchases.service';
+import { PurchasesDeleteDialogComponent } from 'app/Pages/Purchase/purchases-details/purchases-delete-dialog.component';
+import { PurchasesService } from 'app/Pages/Purchase/purchases-details/purchases.service';
 
 describe('Component Tests', () => {
   describe('Purchases Management Delete Component', () => {
