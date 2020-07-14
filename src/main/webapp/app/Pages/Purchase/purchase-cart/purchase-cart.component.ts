@@ -17,7 +17,7 @@ import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 export class PurchaseCartComponent implements OnInit {
 
   code: string;
-  searchItems:Inventory[] = [];
+  searchItems:IInventory[] = [];
 
   constructor(private modalService:NgbModal,protected inventoryService:InventoryService,public purchaseData:PurchaseData) {
     this.code = '';
@@ -26,9 +26,6 @@ export class PurchaseCartComponent implements OnInit {
   search(code:string):void{
     this.inventoryService.findAllByCode(code).subscribe((res: HttpResponse<IInventory[]>) => (this.searchItems = res.body || []));
 
-    for (var item of this.purchaseData.selectedItems){
-      // if (this.searchItems.)
-    }
 
   }
 

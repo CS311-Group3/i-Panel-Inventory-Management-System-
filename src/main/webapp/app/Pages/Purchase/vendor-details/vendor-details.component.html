@@ -1,11 +1,37 @@
 <div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
-    <h6 class="text-right">{{message}}</h6>
-    <h1 class="text-capitalize text-center">Title</h1>
-    <h5 class="text-center">Subtitle</h5>
-    <hr/>
-    <p class="text-justify">Content</p>
-  </div>
-  <div class="col-md-1"></div>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h1 class="text-capitalize text-left">Purchases</h1>
+        <h2 class="text-center">..</h2>
+        <h5 class="text-left">Vendor Details</h5>
+        <div class="text-align right">
+            <hr/>
+        </div>
+        <div class="form-group">
+            <form>
+                <label class="col-form-label">Name :</label>
+                <input type="text" [ngModelOptions]="{standalone:true}" [(ngModel)]="name" class="form-control" >
+
+                <label class="col-form-label">Phone :</label>
+                <input type="text" [ngModelOptions]="{standalone:true}" [(ngModel)]="phone" class="form-control" >
+
+                <label F class="col-form-label">Email :</label>
+                <input type="text" [ngModelOptions]="{standalone:true}" [(ngModel)]="email" class="form-control">
+
+                <label class="col-form-label">Address :</label>
+                <textarea class="form-control" [ngModelOptions]="{standalone:true}" [(ngModel)]="address" id="exampleTextarea" rows="3"></textarea>
+                <br>
+
+            </form>
+
+        </div>
+        <br>
+        <!--buttons-->
+        <button type="button" class="btn btn-secondary" [routerLink]="['../purchase-cart']">Back</button>
+        <button type="button" class="btn btn-danger">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="createVendor()">Proceed</button>
+        <!-- /buttons -->
+    </div>
+    <div class="col-md-1"></div>
 </div>
+

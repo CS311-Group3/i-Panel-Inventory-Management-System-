@@ -6,7 +6,7 @@ import {PurchaseItems} from "app/shared/model/purchase-items.model";
 @Injectable({providedIn : 'root'})
 export class PurchaseData {
 
-  reviewItem:Inventory;
+  reviewItem:IInventory;
   selectedItems:PurchaseItems[] = [];
   // selectedItemsCode:string[] = [] || undefined;
 
