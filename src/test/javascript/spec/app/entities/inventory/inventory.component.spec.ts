@@ -4,8 +4,8 @@ import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, convertToParamMap, Data } from '@angular/router';
 
 import { IpanelTestModule } from '../../../test.module';
-import { InventoryComponent } from 'app/entities/inventory/inventory.component';
-import { InventoryService } from 'app/entities/inventory/inventory.service';
+import { InventoryComponent } from 'app/Pages/Inventory/inventory/inventory.component';
+import { InventoryService } from 'app/Pages/Inventory/inventory/inventory.service';
 import { Inventory } from 'app/shared/model/inventory.model';
 
 describe('Component Tests', () => {

@@ -2,7 +2,7 @@ import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import * as moment from 'moment';
 import { DATE_FORMAT } from 'app/shared/constants/input.constants';
-import { PurchasesService } from 'app/entities/purchases/purchases.service';
+import { PurchasesService } from 'app/Pages/Purchase/purchases-details/purchases.service';
 import { IPurchases, Purchases } from 'app/shared/model/purchases.model';
 
 describe('Service Tests', () => {

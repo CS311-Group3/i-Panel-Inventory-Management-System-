@@ -1,22 +1,21 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { IpanelSharedModule } from '../../../shared/shared.module';
-
-import { CUSTOMER_DETAILS_ROUTE, CustomerDetailsComponent } from './index';
+import { IpanelSharedModule } from 'app/shared/shared.module';
+import { CustomerDetailsComponent } from './customer-details.component';
+import { CustomerDetailsDetailComponent } from './customer-details-detail.component';
+import { CustomerDetailsUpdateComponent } from './customer-details-update.component';
+import { CustomerDetailsDeleteDialogComponent } from './customer-details-delete-dialog.component';
+import { customerDetailsRoute } from './customer-details.route';
 
 @NgModule({
-    imports: [
-      IpanelSharedModule,
-      RouterModule.forRoot([ CUSTOMER_DETAILS_ROUTE ], { useHash: true })
-    ],
-    declarations: [
-      CustomerDetailsComponent,
-    ],
-    entryComponents: [
-    ],
-    providers: [
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  imports: [IpanelSharedModule, RouterModule.forChild(customerDetailsRoute)],
+  declarations: [
+    CustomerDetailsComponent,
+    CustomerDetailsDetailComponent,
+    CustomerDetailsUpdateComponent,
+    CustomerDetailsDeleteDialogComponent,
+  ],
+  entryComponents: [CustomerDetailsDeleteDialogComponent],
 })
-export class IpanelAppCustomerDetailsModule {}
+export class IpanelCustomerDetailsModule {}

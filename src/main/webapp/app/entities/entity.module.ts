@@ -6,15 +6,15 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild([
       {
         path: 'inventory',
-        loadChildren: () => import('./inventory/inventory.module').then(m => m.IpanelInventoryModule),
+        loadChildren: () => import('../Pages/Inventory/inventory/inventory.module').then(m => m.IpanelInventoryModule),
       },
       {
         path: 'vendor',
-        loadChildren: () => import('./vendor/vendor.module').then(m => m.IpanelVendorModule),
+        loadChildren: () => import('../Pages/Purchase/vendor/vendor.module').then(m => m.IpanelVendorModule),
       },
       {
         path: 'purchases',
-        loadChildren: () => import('./purchases/purchases.module').then(m => m.IpanelPurchasesModule),
+        loadChildren: () => import('../Pages/Purchase/purchases-details/purchases.module').then(m => m.IpanelPurchasesModule),
       },
       {
         path: 'purchase-items',
@@ -22,11 +22,11 @@ import { RouterModule } from '@angular/router';
       },
       {
         path: 'customer-details',
-        loadChildren: () => import('./customer-details/customer-details.module').then(m => m.IpanelCustomerDetailsModule),
+        loadChildren: () => import('../Pages/Sales/customer-details/customer-details.module').then(m => m.IpanelCustomerDetailsModule),
       },
       {
         path: 'sales',
-        loadChildren: () => import('./sales/sales.module').then(m => m.IpanelSalesModule),
+        loadChildren: () => import('../Pages/Sales/sales-details/sales.module').then(m => m.IpanelSalesModule),
       },
       {
         path: 'sales-items',
@@ -34,7 +34,7 @@ import { RouterModule } from '@angular/router';
       },
       {
         path: 'returns-data',
-        loadChildren: () => import('./returns-data/returns-data.module').then(m => m.IpanelReturnsDataModule),
+        loadChildren: () => import('../Pages/Returns/returns-data/returns-data.module').then(m => m.IpanelReturnsDataModule),
       },
       {
         path: 'return-items',

@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 import { IReturnsData, ReturnsData } from 'app/shared/model/returns-data.model';
 import { ReturnsDataService } from './returns-data.service';
 import { ISales } from 'app/shared/model/sales.model';
-import { SalesService } from 'app/entities/sales/sales.service';
+import { SalesService } from 'app/Pages/Sales/sales-details/sales.service';
 
 @Component({
   selector: 'jhi-returns-data-update',

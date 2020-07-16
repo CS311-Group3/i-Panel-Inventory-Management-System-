@@ -4,8 +4,8 @@ import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, convertToParamMap, Data } from '@angular/router';
 
 import { IpanelTestModule } from '../../../test.module';
-import { SalesComponent } from 'app/entities/sales/sales.component';
-import { SalesService } from 'app/entities/sales/sales.service';
+import { SalesComponent } from 'app/Pages/Sales/sales-details/sales.component';
+import { SalesService } from 'app/Pages/Sales/sales-details/sales.service';
 import { Sales } from 'app/shared/model/sales.model';
 
 describe('Component Tests', () => {

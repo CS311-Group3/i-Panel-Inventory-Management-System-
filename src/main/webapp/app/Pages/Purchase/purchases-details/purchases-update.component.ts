@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 import { IPurchases, Purchases } from 'app/shared/model/purchases.model';
 import { PurchasesService } from './purchases.service';
 import { IVendor } from 'app/shared/model/vendor.model';
-import { VendorService } from 'app/entities/vendor/vendor.service';
+import { VendorService } from 'app/Pages/Purchase/vendor/vendor.service';
 
 @Component({
   selector: 'jhi-purchases-update',

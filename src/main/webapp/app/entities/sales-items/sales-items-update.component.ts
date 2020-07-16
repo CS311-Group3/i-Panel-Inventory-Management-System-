@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
 import { ISalesItems, SalesItems } from 'app/shared/model/sales-items.model';
 import { SalesItemsService } from './sales-items.service';
 import { IInventory } from 'app/shared/model/inventory.model';
-import { InventoryService } from 'app/entities/inventory/inventory.service';
+import { InventoryService } from 'app/Pages/Inventory/inventory/inventory.service';
 import { ISales } from 'app/shared/model/sales.model';
-import { SalesService } from 'app/entities/sales/sales.service';
+import { SalesService } from 'app/Pages/Sales/sales-details/sales.service';
 
 type SelectableEntity = IInventory | ISales;
 

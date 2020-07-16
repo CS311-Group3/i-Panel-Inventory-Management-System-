@@ -1,41 +1,67 @@
-<div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
-    <h1 class="text-capitalize text-left">Sales</h1>
-    <h2 class="text-center">Direct Sales</h2>
-      <h5 class="text-left">Customer Deatils</h5>
-      <div class="text-align right">
-    <hr/>
-</div>
-  <div class="form-group">     
-    <form>
-        <label class="col-form-label">Name :</label>
-        <input type="text" class="form-control" >
+<div>
+    <h2 id="page-heading">
+        <span>Customer Details</span>
 
-        <label class="col-form-label">Phone :</label>
-        <input type="text" class="form-control" >
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer-details" [routerLink]="['/customer-details/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Customer Details
+            </span>
+        </button>
+    </h2>
 
-        <label F class="col-form-label">Email :</label>
-        <input type="text" class="form-control">
-	  
-     <label class="col-form-label">Address :</label>
-          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-          <br>
-        <label>Payment Method:</label>
-          <select class="form-control">
-              <option>Card</option>
-              <option>Cash</option>
-          </select>
-      </form>
+    <jhi-alert-error></jhi-alert-error>
 
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="customerDetails?.length === 0">
+        <span>No customerDetails found</span>
     </div>
-         <br>
-<!--buttons-->
-      <button type="button" class="btn btn-secondary">Back</button>
-      <button type="button" class="btn btn-danger">Cancel</button>
-      <button type="button" class="btn btn-primary">Proceed</button>
-<!-- /buttons -->
-  </div>
-  <div class="col-md-1"></div>
-</div>
 
+    <div class="table-responsive" id="entities" *ngIf="customerDetails && customerDetails.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customerName"><span>Customer Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span>Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address"><span>Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="phone"><span>Phone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let customerDetails of customerDetails ;trackBy: trackId">
+                    <td><a [routerLink]="['/customer-details', customerDetails.id, 'view']">{{ customerDetails.id }}</a></td>
+                    <td>{{ customerDetails.customerName }}</td>
+                    <td>{{ customerDetails.email }}</td>
+                    <td>{{ customerDetails.address }}</td>
+                    <td>{{ customerDetails.phone }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/customer-details', customerDetails.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/customer-details', customerDetails.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(customerDetails)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

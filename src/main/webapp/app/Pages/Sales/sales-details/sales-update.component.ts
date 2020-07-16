@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 import { ISales, Sales } from 'app/shared/model/sales.model';
 import { SalesService } from './sales.service';
 import { ICustomerDetails } from 'app/shared/model/customer-details.model';
-import { CustomerDetailsService } from 'app/entities/customer-details/customer-details.service';
+import { CustomerDetailsService } from 'app/Pages/Sales/customer-details/customer-details.service';
 
 @Component({
   selector: 'jhi-sales-update',
