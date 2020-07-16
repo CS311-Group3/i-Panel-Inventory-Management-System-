@@ -36,7 +36,7 @@ export class VendorResolve implements Resolve<IVendor> {
 
 export const vendorRoute: Routes = [
   {
-    path: 'vendor',
+    path: '',
     component: VendorComponent,
     data: {
       authorities: [Authority.USER],
