@@ -13,10 +13,11 @@ export class BuyPopupComponent implements OnInit {
   total: number;
   units: number;
 
+  message:string;
   constructor(public activeModal: NgbActiveModal, public purchaseData: PurchaseData) {
     this.total = 0;
     this.units = 0;
-
+    this.message = "";
   }
 
   ngOnInit(): void {
@@ -30,9 +31,18 @@ export class BuyPopupComponent implements OnInit {
     this.selectedItem.quantity = this.units;
     this.selectedItem.total = this.total;
     this.selectedItem.itemCode = this.purchaseData.reviewItem;
+    if (this.checkZeroQuantity()) {
+      this.purchaseData.addToCart(this.selectedItem);
+      this.activeModal.close();
+    }
+  }
 
-    this.purchaseData.addToCart(this.selectedItem);
-    this.activeModal.close();
+  checkZeroQuantity():boolean{
+    if (this.selectedItem.quantity === 0){
+      this.message = "quantity cannot be 0";
+      return false;
+    }
+    return true;
   }
 
 }

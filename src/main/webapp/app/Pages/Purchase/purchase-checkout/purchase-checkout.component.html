@@ -1,84 +1,59 @@
 <div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
-    <h6 class="text-right"></h6>
-    <h1 class="text-capitalize text-center">Purchase</h1>
-    <h3 class="text-center">Main Outlet</h3>
-    <hr/>
-      <p class="text-justify"></p>
-  </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h6 class="text-right"></h6>
+        <h1 class="text-capitalize text-center">Purchase</h1>
+        <h3 class="text-center">Main Outlet</h3>
+        <hr/>
+        <p class="text-justify"></p>
+    </div>
 
-           <h6>Checkout List</h6>
-           <table class="table table-hover">
-               <thead>
-               <tr>
-                   <th scope="col">Item ID</th>
-                   <th scope="col">Item Name</th>
-                   <th scope="col">Unit Price</th>
-                   <th scope="col">Quantity</th>
-                   <th scope="col">Total</th>
-               </tr>
-               </thead>
-               <tbody>
-               <tr class="table-secondary">
-                   <td>001</td>
-                   <td>Item 1</td>
-                   <td>Rs.10</td>
-                   <td>100</td>
-                   <td>100</td>
-               </tr>
-               <tr class="table-secondary">
-                   <td>002</td>
-                   <td>Item 2</td>
-                   <td>Rs.30</td>
-                   <td>200</td>
-                   <td>100</td>
-               </tr>
-               <tr class="table-secondary">
-                   <td>003</td>
-                   <td>Item 3</td>
-                   <td>Rs.90</td>
-                   <td>12000</td>
-                   <td>100</td>
-               </tr>
-               <tr class="table-secondary">
-                   <td>004</td>
-                   <td>Item 4</td>
-                   <td>Rs.120</td>
-                   <td>100</td>
-                   <td>100</td>
-               </tr>
-               <tr class="table-secondary">
-                   <td>005</td>
-                   <td>Item 5</td>
-                   <td>Rs.100</td>
-                   <td>100</td>
-                   <td>100</td>
-               </tr>
-               </tbody>
-           </table>
+    <h6>Checkout List</h6>
+    <div class="table-responsive my-container" id="cart">
 
-           <!-- /search -->
-           <br>
-           <!-- cart -->
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Item ID</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of getItems()" class="table-secondary">
+                <td>{{item.itemCode.itemCode}}</td>
+                <td>{{item.itemCode.itemName}}</td>
+                <td>{{item.itemCode.buyingPrice}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.total}}</td>
+            </tr>
 
-           <!--        /cart -->
-           <br>
-       </div>
+            </tbody>
+        </table>
+    </div>
+    <!-- /search -->
+    <br>
+    <!-- cart -->
 
-       <!--        buttons-->
-       <label class="checkout">Total No. of Items : 5</label>
-       <br>
-       <label class="checkout">Discounts : Rs.500</label>
-       <br>
-       <label class="checkout">Total : Rs.5000</label>
-
-       <!--Buttons-->
-       <button class="btn btn-primary fa-pull-right btnSpacing">Checkout</button>
-       <button class="btn btn-secondary fa-pull-right btnSpacing">Back</button>
-       <button class="btn btn-danger fa-pull-right btnSpacing">Cancel</button>
-
-   </div>
-   <div class="col-md-1"></div>
+    <!--        /cart -->
+    <br>
 </div>
-	
+
+<!--        buttons-->
+<label class="checkout">Total No. of Items : {{cart.length}}</label>
+<br>
+<label class="checkout">Discounts : Rs.500</label>
+<br>
+<label class="checkout">Total : Rs.{{total}}</label>
+
+<!--Buttons-->
+<button class="btn btn-primary fa-pull-right btnSpacing">Checkout</button>
+<button class="btn btn-secondary fa-pull-right btnSpacing">Back</button>
+<button class="btn btn-danger fa-pull-right btnSpacing">Cancel</button>
+
+</div>
+<div class="col-md-1"></div>
+</div>
+

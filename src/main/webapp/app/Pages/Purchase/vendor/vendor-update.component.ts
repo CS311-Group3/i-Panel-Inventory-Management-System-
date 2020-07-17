@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 
 import { IVendor, Vendor } from 'app/shared/model/vendor.model';
 import { VendorService } from './vendor.service';
+import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 
 @Component({
   selector: 'jhi-vendor-update',
@@ -23,7 +24,12 @@ export class VendorUpdateComponent implements OnInit {
     address: [],
   });
 
-  constructor(protected vendorService: VendorService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(protected vendorService: VendorService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder,public purchaseData:PurchaseData) {}
+
+  createVendor():void{
+    this.purchaseData.vendor = this.createFromForm();
+  }
+
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ vendor }) => {

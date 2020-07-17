@@ -37,4 +37,8 @@ export class PurchaseCartComponent implements OnInit {
     this.purchaseData.add(item);
   }
 
+  removeItem(item:IInventory):void{
+    this.purchaseData
+  }
+
 }
