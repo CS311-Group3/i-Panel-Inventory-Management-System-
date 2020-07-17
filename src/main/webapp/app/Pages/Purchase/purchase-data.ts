@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {IInventory, Inventory} from "app/shared/model/inventory.model";
 import {IPurchaseItems, PurchaseItems} from "app/shared/model/purchase-items.model";
-import {IVendor} from "app/shared/model/vendor.model";
+import {IVendor, Vendor} from "app/shared/model/vendor.model";
 
 
 @Injectable({providedIn: 'root'})
@@ -9,10 +9,15 @@ export class PurchaseData {
 
   reviewItem: IInventory;
   cart: PurchaseItems[] = [];
-  vendor?: IVendor;
+  vendor: IVendor;
 
   constructor() {
     this.reviewItem = new Inventory();
+    this.vendor = new Vendor();
+  }
+
+  getVendor():any{
+    return this.vendor;
   }
 
   getReviewItem(): any {
