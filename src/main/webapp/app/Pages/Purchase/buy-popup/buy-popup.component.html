@@ -1,5 +1,5 @@
 <div class="modal-header">
-
+    <h2>Add To Cart</h2>
     <button aria-label="Close" data-dismiss="modal" class="close" type="button" (click)="activeModal.dismiss('closed')">
         <span aria-hidden="true">x</span>
     </button>
@@ -17,12 +17,11 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label class="username-label">Unit Price : </label>
-                        <input type="text" class="form-control"  [(ngModel)]="unitPrice" [ngModelOptions]="{standalone:true}" (input)="calculateTotal()"  value="{{unitPrice}}">
+                        <input type="number" class="form-control"  [(ngModel)]="unitPrice" [ngModelOptions]="{standalone:true}" (input)="calculateTotal()"  value="{{unitPrice}}">
                     </div>
                     <div class="col-md-6">
                         <label class="username-label">Quantity : </label>
-                        <input [(ngModel)]="units" [ngModelOptions]="{standalone:true}" (input)="calculateTotal()"
-                               type="text" class="form-control" value="{{units}}">
+                        <input type="number" [(ngModel)]="units" [ngModelOptions]="{standalone:true}" (input)="calculateTotal()" class="form-control" value="{{units}}">
                     </div>
                 </div>
             </div>

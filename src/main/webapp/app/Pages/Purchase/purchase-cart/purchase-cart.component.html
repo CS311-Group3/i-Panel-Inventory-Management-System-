@@ -10,12 +10,11 @@
             <div class="row">
                 <div class="col-md-3">
                     <label class="col-form-label">Item Name : </label>
-                    <input class="form-control" type="text" value="Item"> <label class="space"></label>
+                    <input class="form-control" type="text" [(ngModel)]="itemName" (input)="search()"> <label class="space"></label>
                 </div>
                 <div class="col-md-3">
                     <label class="col-form-label">Item Code : </label>
-                    <input class="form-control" type="text" [(ngModel)]="code" (input)="search(code)"> <label
-                    class="space"></label>
+                    <input class="form-control" type="text" [(ngModel)]="code" (input)="search()"> <label class="space"></label>
                 </div>
             </div>
             <br>
@@ -83,7 +82,7 @@
 
         <!--        buttons-->
         <button class="btn btn-secondary" [routerLink]="['']">Cancel</button>
-        <button class="btn btn-primary" [routerLink]="['../vendor/new']">Proceed</button>
+        <button class="btn btn-primary"  [routerLink]="['../vendor/new']">Proceed</button>
 
     </div>
     <div class="col-md-1"></div>

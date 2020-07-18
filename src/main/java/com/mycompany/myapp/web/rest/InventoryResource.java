@@ -7,6 +7,7 @@ import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import io.swagger.models.auth.In;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -106,6 +107,22 @@ public class InventoryResource {
         log.debug("REST request to get Inventory : {}", code);
         List<Inventory> inventory = inventoryRepository.findAllByItemCodeContains(code);
         return inventory;
+    }
+
+    @GetMapping("/inventories-by-name/{name}")
+    public List<Inventory> getInventoriesByName(@PathVariable String name) {
+        log.debug("REST request to get Inventory : {}", name);
+        List<Inventory> inventory = inventoryRepository.findAllByItemNameContains(name);
+        return inventory;
+    }
+
+    @GetMapping("/inventories-by-code-and-name/{code}/{name}")
+    public List<Inventory> getInventoriesByCodeAndName(@PathVariable String code,@PathVariable String name) {
+        log.debug("REST request to get Inventory : {}", code);
+        List<Inventory> inventory1 = inventoryRepository.findAllByItemCodeContains(code);
+        List<Inventory> inventory2 = inventoryRepository.findAllByItemNameContains(name);
+        inventory1.retainAll(inventory2);
+        return inventory1;
     }
 
 

@@ -15,4 +15,7 @@ import java.util.List;
 @Repository
 public interface InventoryRepository extends JpaRepository<Inventory, Long> {
     List<Inventory> findAllByItemCodeContains(String code);
+
+    List<Inventory> findAllByItemNameContains(String name);
+
 }
