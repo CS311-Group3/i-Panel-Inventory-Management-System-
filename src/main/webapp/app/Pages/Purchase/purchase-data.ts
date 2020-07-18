@@ -8,7 +8,7 @@ import {IVendor, Vendor} from "app/shared/model/vendor.model";
 export class PurchaseData {
 
   reviewItem: IInventory;
-  cart: PurchaseItems[] = [];
+  cart: IPurchaseItems[] = [];
   vendor?: IVendor;
 
   constructor() {
@@ -52,5 +52,11 @@ export class PurchaseData {
   public removeFromCart(item: IPurchaseItems): void {
     const index = this.cart.indexOf(item);
     this.cart.splice(index, 1);
+  }
+
+  destroy():void{
+    delete this.cart;
+    delete this.vendor;
+    delete this.reviewItem;
   }
 }

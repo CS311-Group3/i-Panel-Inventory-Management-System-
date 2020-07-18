@@ -31,11 +31,11 @@ public class PurchaseItems implements Serializable {
     @Column(name = "total")
     private Float total;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JsonIgnoreProperties(value = "purchaseItems", allowSetters = true)
     private Inventory itemCode;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "items", allowSetters = true)
     private Purchases purchaseCode;
 

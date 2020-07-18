@@ -24,7 +24,7 @@ export class PurchaseCartComponent implements OnInit {
   }
 
   search(code:string):void{
-    this.inventoryService.findAllByCode(code).subscribe((res: HttpResponse<IInventory[]>) => (this.searchItems = res.body || []));
+      this.inventoryService.findAllByCode(code).subscribe((res: HttpResponse<IInventory[]>) => (this.searchItems = res.body || []));
 
 
   }

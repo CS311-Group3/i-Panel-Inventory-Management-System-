@@ -9,6 +9,8 @@ import {PurchasesUpdateComponent} from "app/Pages/Purchase/purchases-details/pur
 import {PurchasesService} from "app/Pages/Purchase/purchases-details/purchases.service";
 import {PurchaseItemsUpdateComponent} from "app/entities/purchase-items/purchase-items-update.component";
 import {PurchaseItemsService} from "app/entities/purchase-items/purchase-items.service";
+import {HttpResponse} from "@angular/common/http";
+import {IInventory} from "app/shared/model/inventory.model";
 
 @Component({
   selector: 'jhi-purchase-checkout',
@@ -22,11 +24,8 @@ export class PurchaseCheckoutComponent implements OnInit {
   cart: IPurchaseItems[];
   total: number;
   purchase: IPurchases;
-  cartItem?: IPurchaseItems;
 
   constructor(public purchaseData: PurchaseData,
-              protected vendorService: VendorService,
-              protected vendorUpdateComponent: VendorUpdateComponent,
               protected purchasesUpdateComponent: PurchasesUpdateComponent,
               protected purchasesService: PurchasesService,
               protected purchaseItemsUpdateComponent: PurchaseItemsUpdateComponent,
@@ -48,23 +47,26 @@ export class PurchaseCheckoutComponent implements OnInit {
   }
 
   createPurchase(): void {
+
+    this.purchase = this.createFromForm();
+    this.purchasesUpdateComponent.subscribeToSaveResponse(this.purchasesService.create(this.purchase));
+
     for (const item of this.getItems()) {
+      item.purchaseCode = this.purchase;
       this.purchaseItemsUpdateComponent.subscribeToSaveResponse(this.purchaseItemsService.create(item));
     }
 
-    // this.vendorUpdateComponent.subscribeToSaveResponse(this.vendorService.create(this.purchaseData.getVendor()));
-    // this.purchase = this.createFromForm();
-    //
-    // this.purchasesUpdateComponent.subscribeToSaveResponse(this.purchasesService.create(this.purchase));
-
+    this.purchaseData.destroy();
+    this.destroy();
   }
 
-  getVendorEmail(): any {
-    return this.purchase.vendorID?.email;
-  }
 
-  getPurchase(): any {
-    return this.purchase;
+
+
+  destroy(): void {
+    delete this.purchase;
+    delete this.cart;
+    delete this.total;
   }
 
   getItems(): IPurchaseItems[] {

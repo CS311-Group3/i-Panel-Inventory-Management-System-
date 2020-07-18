@@ -37,7 +37,7 @@ public class Purchases implements Serializable {
     @JoinColumn(unique = true)
     private Vendor vendorID;
 
-    @OneToMany(mappedBy = "purchaseCode" )
+    @OneToMany(mappedBy = "purchaseCode")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<PurchaseItems> items = new HashSet<>();
 

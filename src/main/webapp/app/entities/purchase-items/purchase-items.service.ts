@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
 import { IPurchaseItems } from 'app/shared/model/purchase-items.model';
+import {IInventory} from "app/shared/model/inventory.model";
+import {IPurchases} from "app/shared/model/purchases.model";
 
 type EntityResponseType = HttpResponse<IPurchaseItems>;
 type EntityArrayResponseType = HttpResponse<IPurchaseItems[]>;
@@ -25,6 +27,10 @@ export class PurchaseItemsService {
 
   find(id: number): Observable<EntityResponseType> {
     return this.http.get<IPurchaseItems>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+  }
+
+  getByPurchaseCode(code:IPurchases):Observable<EntityArrayResponseType>{
+    return this.http.get<IPurchaseItems[]>(`${this.resourceUrl+ "-get-by-purchase-code"}/${code}`, { observe: 'response' });
   }
 
   query(req?: any): Observable<EntityArrayResponseType> {
