@@ -52,7 +52,7 @@ export class VendorUpdateComponent implements OnInit {
     window.history.back();
   }
 
-  save(): void {
+  savex(): void {
     this.isSaving = true;
     const vendor = this.createFromForm();
     if (vendor.id !== undefined) {

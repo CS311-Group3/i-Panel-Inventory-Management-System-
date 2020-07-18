@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
@@ -13,7 +13,7 @@ import { IPurchases } from 'app/shared/model/purchases.model';
 import { PurchasesService } from 'app/Pages/Purchase/purchases-details/purchases.service';
 
 type SelectableEntity = IInventory | IPurchases;
-
+@Injectable({providedIn:"root"})
 @Component({
   selector: 'jhi-purchase-items-update',
   templateUrl: './purchase-items-update.component.html',
@@ -75,7 +75,7 @@ export class PurchaseItemsUpdateComponent implements OnInit {
     }
   }
 
-  private createFromForm(): IPurchaseItems {
+  public createFromForm(): IPurchaseItems {
     return {
       ...new PurchaseItems(),
       id: this.editForm.get(['id'])!.value,
@@ -87,7 +87,7 @@ export class PurchaseItemsUpdateComponent implements OnInit {
     };
   }
 
-  protected subscribeToSaveResponse(result: Observable<HttpResponse<IPurchaseItems>>): void {
+  public subscribeToSaveResponse(result: Observable<HttpResponse<IPurchaseItems>>): void {
     result.subscribe(
       () => this.onSaveSuccess(),
       () => this.onSaveError()
@@ -96,7 +96,6 @@ export class PurchaseItemsUpdateComponent implements OnInit {
 
   protected onSaveSuccess(): void {
     this.isSaving = false;
-    this.previousState();
   }
 
   protected onSaveError(): void {

@@ -33,11 +33,11 @@ public class Purchases implements Serializable {
     @Column(name = "date_of_purchase")
     private LocalDate dateOfPurchase;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(unique = true)
     private Vendor vendorID;
 
-    @OneToMany(mappedBy = "purchaseCode")
+    @OneToMany(mappedBy = "purchaseCode" )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<PurchaseItems> items = new HashSet<>();
 

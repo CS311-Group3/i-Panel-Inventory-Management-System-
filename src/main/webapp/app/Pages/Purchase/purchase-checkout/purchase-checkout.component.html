@@ -48,9 +48,8 @@
 <br>
 <label class="checkout">Total : Rs.{{total}}</label>
 
-<div>{{getVendorEmail()}}</div>
 <!--Buttons-->
-<button class="btn btn-primary fa-pull-right btnSpacing" >Checkout</button>
+<button class="btn btn-primary fa-pull-right btnSpacing" (click)="createPurchase()" >Checkout</button>
 
 <button class="btn btn-secondary fa-pull-right btnSpacing">Back</button>
 <button class="btn btn-danger fa-pull-right btnSpacing">Cancel</button>

@@ -9,11 +9,10 @@ export class PurchaseData {
 
   reviewItem: IInventory;
   cart: PurchaseItems[] = [];
-  vendor: IVendor;
+  vendor?: IVendor;
 
   constructor() {
     this.reviewItem = new Inventory();
-    this.vendor = new Vendor();
   }
 
   getVendor():any{

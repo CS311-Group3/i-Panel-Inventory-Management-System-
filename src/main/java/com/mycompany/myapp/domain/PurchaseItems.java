@@ -31,7 +31,7 @@ public class PurchaseItems implements Serializable {
     @Column(name = "total")
     private Float total;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "purchaseItems", allowSetters = true)
     private Inventory itemCode;
 
