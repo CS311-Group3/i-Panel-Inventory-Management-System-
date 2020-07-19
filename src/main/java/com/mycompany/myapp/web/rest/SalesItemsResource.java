@@ -99,6 +99,11 @@ public class SalesItemsResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/sales-items-get-by-sales-code/{code}")
+    public List<SalesItems> getAllSalesItemsBySalesCode(@PathVariable String code){
+        return salesItemsRepository.getAllBySalesCode(code);
+    }
+
     /**
      * {@code GET  /sales-items/:id} : get the "id" salesItems.
      *

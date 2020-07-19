@@ -29,6 +29,8 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ErrorComponent } from './layouts/error/error.component';
 import { BuyPopupComponent } from "app/Pages/Purchase/buy-popup/buy-popup.component";
+import {ReturnPopupComponent} from "app/Pages/Returns/returns-popup/return-popup.component";
+import {SalesPopupComponent} from "app/Pages/Sales/sales-popup/sales-popup.component";
 
 @NgModule({
   imports: [
@@ -55,7 +57,7 @@ import { BuyPopupComponent } from "app/Pages/Purchase/buy-popup/buy-popup.compon
     IpanelEntityModule,
     IpanelAppRoutingModule
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, BuyPopupComponent],
+  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, BuyPopupComponent,ReturnPopupComponent,SalesPopupComponent],
   bootstrap: [MainComponent]
 })
 export class IpanelAppModule {}
