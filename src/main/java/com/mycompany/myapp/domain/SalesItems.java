@@ -35,9 +35,11 @@ public class SalesItems implements Serializable {
     @JsonIgnoreProperties(value = "salesItems", allowSetters = true)
     private Inventory itemCode;
 
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "items", allowSetters = true)
     private Sales salesCode;
+
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {

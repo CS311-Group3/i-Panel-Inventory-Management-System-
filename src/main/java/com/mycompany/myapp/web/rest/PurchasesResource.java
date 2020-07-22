@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -73,7 +74,7 @@ public class PurchasesResource {
             inventoryItem.setQuantity(item.getQuantity() + inventoryItem.getQuantity());
             inventoryRepository.save(inventoryItem);
         }
-        purchases.setDateOfPurchase(LocalDate.now());
+        purchases.setDateOfPurchase(LocalDate.now().plusDays(1));
         Purchases result = purchasesRepository.save(purchases);
         return ResponseEntity.created(new URI("/api/purchases/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
@@ -115,6 +116,11 @@ public class PurchasesResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+
+    @GetMapping("/purchases-get-by-date/{date}")
+    public List<Purchases> getALlPurchasesByDate(@PathVariable LocalDate date){
+        return purchasesRepository.getAllByDateOfPurchaseOrderByIdDesc(date.plusDays(1));
+    }
 
 
     /**

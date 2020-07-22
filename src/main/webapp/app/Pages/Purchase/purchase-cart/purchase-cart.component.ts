@@ -4,7 +4,6 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {InventoryService} from "app/Pages/Inventory/inventory/inventory.service";
 import {IInventory, Inventory} from "app/shared/model/inventory.model";
 import {HttpResponse} from "@angular/common/http";
-import {PurchasesService} from "app/Pages/Purchase/purchases-details/purchases.service";
 import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 
 @Component({

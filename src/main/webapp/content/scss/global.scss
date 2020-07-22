@@ -12,7 +12,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 500;
+  font-weight: 300;
 }
 
 a:hover {
@@ -164,3 +164,14 @@ ui bootstrap tweaks
 }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+
+.detailPageNames{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.detailPageValues{
+  font-size: 18px;
+  font-weight: normal;
+}
+

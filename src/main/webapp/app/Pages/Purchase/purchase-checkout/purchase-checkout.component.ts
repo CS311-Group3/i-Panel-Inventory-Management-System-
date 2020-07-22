@@ -2,15 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 import {IPurchaseItems, PurchaseItems} from "app/shared/model/purchase-items.model";
 import {IPurchases, Purchases} from "app/shared/model/purchases.model";
-import {IVendor} from "app/shared/model/vendor.model";
-import {VendorService} from "app/Pages/Purchase/vendor/vendor.service";
-import {VendorUpdateComponent} from "app/Pages/Purchase/vendor/vendor-update.component";
 import {PurchasesUpdateComponent} from "app/Pages/Purchase/purchases-details/purchases-update.component";
 import {PurchasesService} from "app/Pages/Purchase/purchases-details/purchases.service";
 import {PurchaseItemsUpdateComponent} from "app/entities/purchase-items/purchase-items-update.component";
 import {PurchaseItemsService} from "app/entities/purchase-items/purchase-items.service";
-import {HttpResponse} from "@angular/common/http";
-import {IInventory} from "app/shared/model/inventory.model";
 
 @Component({
   selector: 'jhi-purchase-checkout',
@@ -24,7 +19,6 @@ export class PurchaseCheckoutComponent implements OnInit {
   cart: IPurchaseItems[];
   total: number;
   purchase: IPurchases;
-
   constructor(public purchaseData: PurchaseData,
               protected purchasesUpdateComponent: PurchasesUpdateComponent,
               protected purchasesService: PurchasesService,
