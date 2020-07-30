@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="username-label">Quantity : </label>
-                        <input type="number" [(ngModel)]="units" [ngModelOptions]="{standalone:true}" (input)="calculateTotal()" class="form-control" value="{{units}}">
+                        <input type="number" #quantity (click)="quantity.select()" [(ngModel)]="units" [ngModelOptions]="{standalone:true}" (input)="calculateTotal()" class="form-control" value="{{units}}">
                     </div>
                 </div>
             </div>

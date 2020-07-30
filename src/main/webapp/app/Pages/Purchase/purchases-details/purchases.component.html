@@ -2,12 +2,12 @@
     <h2 id="page-heading">
         <span>Purchases</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-purchases" [routerLink]="['/purchases/new']">
-            <fa-icon icon="plus"></fa-icon>
-            <span>
-            Create a new Purchases
-            </span>
-        </button>
+        <!--        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-purchases" [routerLink]="['/purchases/new']">-->
+        <!--            <fa-icon icon="plus"></fa-icon>-->
+        <!--            <span>-->
+        <!--            Create a new Purchases-->
+        <!--            </span>-->
+        <!--        </button>-->
     </h2>
 
     <jhi-alert-error></jhi-alert-error>
@@ -18,53 +18,61 @@
         <span>No purchases found</span>
     </div>
 
+    <div class="row">
+        <div class="col-md-3">
+            <label class="col-form-label">Date : </label>
+            <input class="form-control" type="date" [(ngModel)]="date" (input)="getPurchases()"> <label class="space"></label>
+        </div>
+    </div>
+    <br>
+
     <div class="table-responsive" id="entities" *ngIf="purchases && purchases.length > 0">
-        <table class="table table-striped" aria-describedby="page-heading">
+        <table class="table table-hover" aria-describedby="page-heading">
             <thead>
-                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="total"><span>Total</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="discounts"><span>Discounts</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="dateOfPurchase"><span>Date Of Purchase</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="vendorID.id"><span>Vendor ID</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"></th>
-                </tr>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                <!--                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>-->
+                <th scope="col"><span>Date Of Purchase</span></th>
+                <th scope="col"><span>Vendor</span></th>
+                <th scope="col"><span>Total</span></th>
+                <!--                    <th scope="col"  jhiSortBy="discounts"><span>Discounts</span> <fa-icon icon="sort"></fa-icon></th>-->
+                <th scope="col"></th>
+            </tr>
             </thead>
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
-                <tr *ngFor="let purchases of purchases ;trackBy: trackId">
-                    <td><a [routerLink]="['/purchases', purchases.id, 'view']">{{ purchases.id }}</a></td>
-                    <td>{{ purchases.total }}</td>
-                    <td>{{ purchases.discounts }}</td>
-                    <td>{{ purchases.dateOfPurchase | date:'mediumDate' }}</td>
-                    <td>
-                        <div *ngIf="purchases.vendorID">
-                            <a [routerLink]="['/vendor', purchases.vendorID?.id, 'view']" >{{ purchases.vendorID?.id }}</a>
-                        </div>
-                    </td>
-                    <td class="text-right">
-                        <div class="btn-group">
-                            <button type="submit"
-                                    [routerLink]="['/purchases', purchases.id, 'view']"
-                                    class="btn btn-info btn-sm">
-                                <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline">View</span>
-                            </button>
+            <tr *ngFor="let purchases of purchases ;trackBy: trackId">
+                <!--                    <td><a [routerLink]="['/purchases', purchases.id, 'view']">{{ purchases.id }}</a></td>-->
+                <td>{{ purchases.dateOfPurchase | date:'mediumDate' }}</td>
+                <!--                    <td>{{ purchases.discounts }}</td>-->
+                <td>
+                    <div *ngIf="purchases.vendorID">
+                        <a [routerLink]="['/vendor', purchases.vendorID?.id, 'view']" >{{ purchases.vendorID?.vendorName }}</a>
+                    </div>
+                </td>
+                <td>Rs. {{ purchases.total }}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/purchases', purchases.id, 'view']"
+                                class="btn btn-info btn-sm">
+                            <fa-icon icon="eye"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
 
-                            <button type="submit"
-                                    [routerLink]="['/purchases', purchases.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
-                                <fa-icon icon="pencil-alt"></fa-icon>
-                                <span class="d-none d-md-inline">Edit</span>
-                            </button>
+                        <!--                            <button type="submit"-->
+                        <!--                                    [routerLink]="['/purchases', purchases.id, 'edit']"-->
+                        <!--                                    class="btn btn-primary btn-sm">-->
+                        <!--                                <fa-icon icon="pencil-alt"></fa-icon>-->
+                        <!--                                <span class="d-none d-md-inline">Edit</span>-->
+                        <!--                            </button>-->
 
-                            <button type="submit" (click)="delete(purchases)"
-                                    class="btn btn-danger btn-sm">
-                                <fa-icon icon="times"></fa-icon>
-                                <span class="d-none d-md-inline">Delete</span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+                        <!--                            <button type="submit" (click)="delete(purchases)"-->
+                        <!--                                    class="btn btn-danger btn-sm">-->
+                        <!--                                <fa-icon icon="times"></fa-icon>-->
+                        <!--                                <span class="d-none d-md-inline">Delete</span>-->
+                        <!--                            </button>-->
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
