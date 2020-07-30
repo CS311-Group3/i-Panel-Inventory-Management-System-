@@ -1,6 +1,7 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.domain.Inventory;
+import com.mycompany.myapp.domain.enumeration.Category;
 import com.mycompany.myapp.repository.InventoryRepository;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 
@@ -15,6 +16,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -118,13 +120,33 @@ public class InventoryResource {
 
     @GetMapping("/inventories-by-code-and-name/{code}/{name}")
     public List<Inventory> getInventoriesByCodeAndName(@PathVariable String code,@PathVariable String name) {
-        log.debug("REST request to get Inventory : {}", code);
-        List<Inventory> inventory1 = inventoryRepository.findAllByItemCodeContains(code);
-        List<Inventory> inventory2 = inventoryRepository.findAllByItemNameContains(name);
-        inventory1.retainAll(inventory2);
-        return inventory1;
+//        log.debug("REST request to get Inventory : {}", code);
+//        List<Inventory> inventory1 = inventoryRepository.findAllByItemCodeContains(code);
+//        List<Inventory> inventory2 = inventoryRepository.findAllByItemNameContains(name);
+//        inventory1.retainAll(inventory2);
+        return inventoryRepository.findAllByItemCodeContainsAndItemNameContains(code,name);
     }
 
+    @GetMapping("/inventories-by-category/{category}")
+    public List<Inventory> getInventoriesByCategory(@PathVariable Category category){
+        return inventoryRepository.findAllByCategory(category);
+    }
+
+
+    @GetMapping("inventories-by-name-category/{name}/{category}")
+    public List<Inventory> getInventoriesByNameAndCategory(@PathVariable String name,@PathVariable Category category){
+        return inventoryRepository.findAllByItemNameContainsAndCategory(name,category);
+    }
+
+    @GetMapping("inventories-by-code-category/{code}/{category}")
+    public List<Inventory> getInventoriesByCodeAndCategory(@PathVariable String code,@PathVariable Category category){
+        return inventoryRepository.findAllByItemCodeContainsAndCategory(code,category);
+    }
+
+    @GetMapping("inventories-by-code-name-category/{code}/{name}/{category}")
+    public List<Inventory> getInventoriesByCodeAndNameAndCategory(@PathVariable String code, @PathVariable String name,@PathVariable Category category){
+        return inventoryRepository.findAllByItemCodeContainsAndItemNameContainsAndCategory(code,name,category);
+    }
 
     /**
      * {@code GET  /inventories/:id} : get the "id" inventory.

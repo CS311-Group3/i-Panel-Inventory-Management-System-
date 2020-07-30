@@ -101,7 +101,7 @@ public class PurchaseItemsResource {
     }
 
     @GetMapping("/purchase-items-get-by-purchase-code/{code}")
-    public List<PurchaseItems> getAllItems(@PathVariable String code){
+    public List<PurchaseItems> getAllItems(@PathVariable Purchases code){
         return purchaseItemsRepository.getAllByPurchaseCode(code);
     }
 

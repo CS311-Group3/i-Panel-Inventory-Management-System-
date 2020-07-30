@@ -37,15 +37,24 @@ export class BuyPopupComponent implements OnInit {
     this.selectedItem.total = this.total;
     this.selectedItem.itemCode = this.purchaseData.reviewItem;
     this.selectedItem.unitPrice = this.unitPrice;
-    if (this.checkZeroQuantity()) {
+    if (this.checkConditions()) {
       this.purchaseData.addToCart(this.selectedItem);
       this.activeModal.close();
     }
   }
 
-  checkZeroQuantity(): boolean {
+  checkConditions(): boolean {
     if (this.selectedItem.quantity === 0) {
-      this.message = "quantity cannot be 0";
+      this.message = "Quantity cannot be 0";
+      return false;
+    }
+    if (this.selectedItem.quantity !== undefined && this.selectedItem.quantity < 0) {
+      this.message = "Quantity cannot be negative";
+      return false;
+    }
+
+    if (this.selectedItem.unitPrice !== undefined && this.selectedItem.unitPrice < 0) {
+      this.message = "Price cannot be negative";
       return false;
     }
     return true;

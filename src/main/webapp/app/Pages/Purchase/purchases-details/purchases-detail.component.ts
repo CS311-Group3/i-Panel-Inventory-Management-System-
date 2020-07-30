@@ -19,13 +19,14 @@ export class PurchasesDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ purchases }) => (this.purchases = purchases));
-    this.getItemsByCOde(this.purchases?.id);
-
+    this.getItemsByCode(this.purchases?.id);
   }
 
-  getItemsByCOde(code:any):void{
+  getItemsByCode(code:any):void{
     this.purchaseItemsService.getByPurchaseCode(code).subscribe((res: HttpResponse<IPurchaseItems[]>) => (this.cartItem = res.body || []));
   }
+
+
 
   previousState(): void {
     window.history.back();

@@ -1,35 +1,62 @@
 <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-12">
         <div *ngIf="purchases">
-            <h2><span>Purchases</span> {{ purchases.id }}</h2>
-<!--<div *ngFor="let item of cartItem">-->
-<!--    {{item.itemCode.itemName}}-->
-<!--</div>-->
+            <h2><span>Purchase ID : </span> {{ purchases.id }}</h2>
+
 
             <hr>
 
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span>Total</span></dt>
-                <dd>
-                    <span>{{ purchases.total }}</span>
-                </dd>
-                <dt><span>Discounts</span></dt>
-                <dd>
-                    <span>{{ purchases.discounts }}</span>
-                </dd>
-                <dt><span>Date Of Purchase</span></dt>
-                <dd>
-                    <span>{{ purchases.dateOfPurchase }}</span>
-                </dd>
-                <dt><span>Vendor ID</span></dt>
-                <dd>
-                    <div *ngIf="purchases.vendorID">
-                        <a [routerLink]="['/vendor', purchases.vendorID?.id, 'view']">{{ purchases.vendorID?.id }}</a>
-                    </div>
-                </dd>
+
+                <!--                <dt>-->
+                <!--                    <span>Discounts</span>-->
+                <!--                    <span>{{ purchases.discounts }}</span>-->
+                <!--                </dt>-->
+
+                <dt>
+                    <span class="detailPageNames">Date Of Purchase : </span>
+                    <span class="detailPageValues">{{ purchases.dateOfPurchase | date:'mediumDate'}}</span>
+                </dt>
+
+                <dt>
+                    <span class="detailPageNames">Vendor Name : </span>
+                    <span class="detailPageValues" *ngIf="purchases.vendorID">
+                        <a [routerLink]="['/vendor', purchases.vendorID?.id, 'view']">{{ purchases.vendorID?.vendorName }}</a>
+                    </span>
+                </dt>
+                <dt>
+                    <span class="detailPageNames">Total : </span>
+                    <span class="detailPageValues">Rs.{{purchases.total}}</span>
+                </dt>
+
+
             </dl>
+
+            <div class="table-responsive my-container" id="cart">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Item ID</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Unit Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of cartItem" class="table-secondary">
+                        <td>{{item.itemCode.itemCode}}</td>
+                        <td>{{item.itemCode.itemName}}</td>
+                        <td>{{item.unitPrice}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.total}}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
 
             <button type="submit"
                     (click)="previousState()"
@@ -37,11 +64,11 @@
                 <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
             </button>
 
-            <button type="button"
-                    [routerLink]="['/purchases', purchases.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
-            </button>
+            <!--            <button type="button"-->
+            <!--                    [routerLink]="['/purchases', purchases.id, 'edit']"-->
+            <!--                    class="btn btn-primary">-->
+            <!--                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>-->
+            <!--            </button>-->
         </div>
     </div>
 </div>
