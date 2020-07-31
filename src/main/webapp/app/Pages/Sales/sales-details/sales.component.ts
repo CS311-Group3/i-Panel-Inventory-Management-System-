@@ -33,10 +33,10 @@ export class SalesComponent implements OnInit, OnDestroy {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.page = 0;
     this.links = {
-      last: 0,
+      last: 0
     };
-    this.predicate = 'id';
-    this.ascending = true;
+    this.predicate = 'dateOfSale,id';
+    this.ascending = false;
   }
 
   loadAll(): void {
@@ -44,7 +44,7 @@ export class SalesComponent implements OnInit, OnDestroy {
       .query({
         page: this.page,
         size: this.itemsPerPage,
-        sort: this.sort(),
+        sort: this.sort()
       })
       .subscribe((res: HttpResponse<ISales[]>) => this.paginateSales(res.body, res.headers));
   }
