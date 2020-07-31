@@ -1,54 +1,48 @@
 <div class="row justify-content-center">
     <div class="col-8">
-        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-sales-heading">Create or edit a Sales</h2>
+        <form name="editForm" role="form" novalidate [formGroup]="editForm">
+            <h2 id="jhi-customer-details-heading">Customer Details</h2>
 
             <div>
                 <jhi-alert-error></jhi-alert-error>
 
-                <div class="form-group" [hidden]="!editForm.get('id')!.value">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                <!--                <div class="form-group" [hidden]="!editForm.get('id')!.value">-->
+                <!--                    <label for="id">ID</label>-->
+                <!--                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />-->
+                <!--                </div>-->
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_customerName">Customer Name</label>
+                    <input type="text" class="form-control" name="customerName" id="field_customerName"
+                           formControlName="customerName"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" for="field_total">Total</label>
-                    <input type="number" class="form-control" name="total" id="field_total"
-                           formControlName="total"/>
+                    <label class="form-control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" for="field_serviceCharges">Service Charges</label>
-                    <input type="number" class="form-control" name="serviceCharges" id="field_serviceCharges"
-                           formControlName="serviceCharges"/>
+                    <label class="form-control-label" for="field_address">Address</label>
+                    <textarea type="text" class="form-control" name="address" id="field_address"
+                              formControlName="address"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" for="field_dateOfSale">Date Of Sale</label>
-                    <div class="input-group">
-                        <input id="field_dateOfSale" type="text" class="form-control" name="dateOfSale" ngbDatepicker #dateOfSaleDp="ngbDatepicker" formControlName="dateOfSale"/>
-                        <span class="input-group-append">
-                            <button type="button" class="btn btn-secondary" (click)="dateOfSaleDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" for="field_customerID">Customer ID</label>
-                    <select class="form-control" id="field_customerID" name="customerID" formControlName="customerID">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="customerDetailsOption.id === editForm.get('customerID')!.value?.id ? editForm.get('customerID')!.value : customerDetailsOption" *ngFor="let customerDetailsOption of customerids; trackBy: trackById">{{ customerDetailsOption.id }}</option>
-                    </select>
+                    <label class="form-control-label" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                           formControlName="phone"/>
                 </div>
             </div>
 
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
-                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                    &nbsp;<span>Back</span>
                 </button>
 
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                <button type="submit" id="save-entity" (click)="createCustomer()" [disabled]="editForm.invalid || isSaving" class="btn btn-primary" [routerLink]="['../../sales-checkout']">
+                    <span>Save</span>
                 </button>
             </div>
         </form>
