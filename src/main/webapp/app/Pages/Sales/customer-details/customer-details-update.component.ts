@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 
 import { ICustomerDetails, CustomerDetails } from 'app/shared/model/customer-details.model';
 import { CustomerDetailsService } from './customer-details.service';
-
+import {SalesData} from "app/Pages/Sales/salesData";
+@Injectable({providedIn:"root"})
 @Component({
   selector: 'jhi-customer-details-update',
   templateUrl: './customer-details-update.component.html',
@@ -26,7 +27,8 @@ export class CustomerDetailsUpdateComponent implements OnInit {
   constructor(
     protected customerDetailsService: CustomerDetailsService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private salesData:SalesData
   ) {}
 
   ngOnInit(): void {
@@ -62,7 +64,6 @@ export class CustomerDetailsUpdateComponent implements OnInit {
   private createFromForm(): ICustomerDetails {
     return {
       ...new CustomerDetails(),
-      id: this.editForm.get(['id'])!.value,
       customerName: this.editForm.get(['customerName'])!.value,
       email: this.editForm.get(['email'])!.value,
       address: this.editForm.get(['address'])!.value,
@@ -70,7 +71,11 @@ export class CustomerDetailsUpdateComponent implements OnInit {
     };
   }
 
-  protected subscribeToSaveResponse(result: Observable<HttpResponse<ICustomerDetails>>): void {
+  createCustomer():void{
+    this.salesData.customer = this.createFromForm();
+  }
+
+  public subscribeToSaveResponse(result: Observable<HttpResponse<ICustomerDetails>>): void {
     result.subscribe(
       () => this.onSaveSuccess(),
       () => this.onSaveError()
