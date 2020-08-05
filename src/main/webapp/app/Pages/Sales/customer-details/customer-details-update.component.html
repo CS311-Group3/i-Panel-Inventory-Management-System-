@@ -25,8 +25,8 @@
 
                 <div class="form-group">
                     <label class="form-control-label" for="field_address">Address</label>
-                    <input type="text" class="form-control" name="address" id="field_address"
-                           formControlName="address"/>
+                    <textarea type="text" class="form-control" name="address" id="field_address"
+                              formControlName="address"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -38,11 +38,11 @@
 
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
-                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                    &nbsp;<span>Back</span>
                 </button>
 
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                <button type="submit" id="save-entity" (click)="createCustomer()" [disabled]="editForm.invalid || isSaving" class="btn btn-primary" [routerLink]="['../../sales-checkout']">
+                    <span>Save</span>
                 </button>
             </div>
         </form>

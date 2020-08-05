@@ -1,4 +1,6 @@
+
 import { Component, Injectable, OnInit } from '@angular/core';
+
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
@@ -10,7 +12,9 @@ import { ISales, Sales } from 'app/shared/model/sales.model';
 import { SalesService } from './sales.service';
 import { ICustomerDetails } from 'app/shared/model/customer-details.model';
 import { CustomerDetailsService } from 'app/Pages/Sales/customer-details/customer-details.service';
+
 @Injectable({ providedIn: 'root' })
+
 @Component({
   selector: 'jhi-sales-update',
   templateUrl: './sales-update.component.html'
