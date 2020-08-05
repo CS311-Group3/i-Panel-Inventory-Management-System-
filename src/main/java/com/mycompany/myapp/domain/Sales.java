@@ -33,7 +33,7 @@ public class Sales implements Serializable {
     @Column(name = "date_of_sale")
     private LocalDate dateOfSale;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(unique = true)
     private CustomerDetails customerID;
 

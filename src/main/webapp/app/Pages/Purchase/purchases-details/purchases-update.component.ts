@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
@@ -10,7 +10,7 @@ import { IPurchases, Purchases } from 'app/shared/model/purchases.model';
 import { PurchasesService } from './purchases.service';
 import { IVendor } from 'app/shared/model/vendor.model';
 import { VendorService } from 'app/Pages/Purchase/vendor/vendor.service';
-
+@Injectable({providedIn:"root"})
 @Component({
   selector: 'jhi-purchases-update',
   templateUrl: './purchases-update.component.html',
@@ -98,7 +98,7 @@ export class PurchasesUpdateComponent implements OnInit {
     };
   }
 
-  protected subscribeToSaveResponse(result: Observable<HttpResponse<IPurchases>>): void {
+  public subscribeToSaveResponse(result: Observable<HttpResponse<IPurchases>>): void {
     result.subscribe(
       () => this.onSaveSuccess(),
       () => this.onSaveError()
@@ -107,7 +107,7 @@ export class PurchasesUpdateComponent implements OnInit {
 
   protected onSaveSuccess(): void {
     this.isSaving = false;
-    this.previousState();
+    // this.previousState();
   }
 
   protected onSaveError(): void {

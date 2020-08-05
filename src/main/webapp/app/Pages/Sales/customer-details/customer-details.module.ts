@@ -7,8 +7,7 @@ import { CustomerDetailsDetailComponent } from './customer-details-detail.compon
 import { CustomerDetailsUpdateComponent } from './customer-details-update.component';
 import { CustomerDetailsDeleteDialogComponent } from './customer-details-delete-dialog.component';
 import { customerDetailsRoute } from './customer-details.route';
-
-@NgModule({
+stom@NgModule({
   imports: [IpanelSharedModule, RouterModule.forChild(customerDetailsRoute)],
   declarations: [
     CustomerDetailsComponent,

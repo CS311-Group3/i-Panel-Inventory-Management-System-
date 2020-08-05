@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, Injectable} from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiParseLinks } from 'ng-jhipster';
@@ -9,7 +9,7 @@ import { ICustomerDetails } from 'app/shared/model/customer-details.model';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { CustomerDetailsService } from './customer-details.service';
 import { CustomerDetailsDeleteDialogComponent } from './customer-details-delete-dialog.component';
-
+@Injectable({providedIn:"root"})
 @Component({
   selector: 'jhi-customer-details',
   templateUrl: './customer-details.component.html',

@@ -4,11 +4,11 @@ import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 import {PurchaseItems} from "app/shared/model/purchase-items.model";
 
 @Component({
-  selector: 'jhi-buy-popup',
-  templateUrl: './buy-popup.component.html',
-  styleUrls: ['./buy-popup.component.scss']
+  selector: 'jhi-return-popup',
+  templateUrl: './return-popup.component.html',
+  styleUrls: ['./return-popup.component.scss']
 })
-export class BuyPopupComponent implements OnInit {
+export class ReturnPopupComponent implements OnInit {
   selectedItem: PurchaseItems = new PurchaseItems();
   total: number;
   unitPrice: number;
@@ -37,24 +37,15 @@ export class BuyPopupComponent implements OnInit {
     this.selectedItem.total = this.total;
     this.selectedItem.itemCode = this.purchaseData.reviewItem;
     this.selectedItem.unitPrice = this.unitPrice;
-    if (this.checkConditions()) {
+    if (this.checkZeroQuantity()) {
       this.purchaseData.addToCart(this.selectedItem);
       this.activeModal.close();
     }
   }
 
-  checkConditions(): boolean {
+  checkZeroQuantity(): boolean {
     if (this.selectedItem.quantity === 0) {
-      this.message = "Quantity cannot be 0";
-      return false;
-    }
-    if (this.selectedItem.quantity !== undefined && this.selectedItem.quantity < 0) {
-      this.message = "Quantity cannot be negative";
-      return false;
-    }
-
-    if (this.selectedItem.unitPrice !== undefined && this.selectedItem.unitPrice < 0) {
-      this.message = "Price cannot be negative";
+      this.message = "quantity cannot be 0";
       return false;
     }
     return true;

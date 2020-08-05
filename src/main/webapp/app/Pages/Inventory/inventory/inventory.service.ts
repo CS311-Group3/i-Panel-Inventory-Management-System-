@@ -39,4 +39,12 @@ export class InventoryService {
   findAllByCode(code :string) : Observable<EntityArrayResponseType> {
     return this.http.get<IInventory[]>(`${this.resourceUrl+ "-by-code"}/${code}`, { observe: 'response' });
   }
+
+  findAllByName(name :string) : Observable<EntityArrayResponseType> {
+    return this.http.get<IInventory[]>(`${this.resourceUrl+ "-by-name"}/${name}`, { observe: 'response' });
+  }
+
+  findAllByCodeAndName(code :string,name:string) : Observable<EntityArrayResponseType> {
+    return this.http.get<IInventory[]>(`${this.resourceUrl+ "-by-code-and-name"}/${code}/${name}`, { observe: 'response' });
+  }
 }

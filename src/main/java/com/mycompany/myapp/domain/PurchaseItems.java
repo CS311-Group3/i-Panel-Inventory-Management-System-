@@ -35,7 +35,7 @@ public class PurchaseItems implements Serializable {
     @JsonIgnoreProperties(value = "purchaseItems", allowSetters = true)
     private Inventory itemCode;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "items", allowSetters = true)
     private Purchases purchaseCode;
 

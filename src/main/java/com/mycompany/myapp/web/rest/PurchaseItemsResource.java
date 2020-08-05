@@ -1,6 +1,7 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.domain.PurchaseItems;
+import com.mycompany.myapp.domain.Purchases;
 import com.mycompany.myapp.repository.PurchaseItemsRepository;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 
@@ -97,6 +98,11 @@ public class PurchaseItemsResource {
         Page<PurchaseItems> page = purchaseItemsRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/purchase-items-get-by-purchase-code/{code}")
+    public List<PurchaseItems> getAllItems(@PathVariable Purchases code){
+        return purchaseItemsRepository.getAllByPurchaseCode(code);
     }
 
     /**

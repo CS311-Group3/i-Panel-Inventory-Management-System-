@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ReturnPopupComponent} from "app/Pages/Returns/returns-popup/return-popup.component";
 
 @Component({
   selector: 'jhi-returns-cart',
@@ -11,11 +13,16 @@ export class ReturnsCartComponent implements OnInit {
 
   message: string;
 
-  constructor() {
+  constructor(private modalService: NgbModal) {
     this.message = 'ReturnsCartComponent message';
   }
 
   ngOnInit(): void {
+  }
+
+
+  openPopUp(): void {
+    this.modalService.open(ReturnPopupComponent);
   }
 
 }
