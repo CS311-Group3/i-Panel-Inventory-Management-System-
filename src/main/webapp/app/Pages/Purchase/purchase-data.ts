@@ -1,39 +1,62 @@
 import {Injectable} from "@angular/core";
 import {IInventory, Inventory} from "app/shared/model/inventory.model";
-import {PurchaseItems} from "app/shared/model/purchase-items.model";
+import {IPurchaseItems, PurchaseItems} from "app/shared/model/purchase-items.model";
+import {IVendor, Vendor} from "app/shared/model/vendor.model";
 
 
-@Injectable({providedIn : 'root'})
+@Injectable({providedIn: 'root'})
 export class PurchaseData {
 
-  reviewItem:IInventory;
-  selectedItems:PurchaseItems[] = [];
-  // selectedItemsCode:string[] = [] || undefined;
+  reviewItem: IInventory;
+  cart: IPurchaseItems[] = [];
+  vendor?: IVendor;
 
   constructor() {
     this.reviewItem = new Inventory();
   }
 
-   getReviewItem():any{
-    if (this.reviewItem != null ){
+  getVendor():any{
+    return this.vendor;
+  }
+
+  getReviewItem(): any {
+    if (this.reviewItem != null) {
       return this.reviewItem;
     }
     return new Inventory();
   }
 
-  public addToCart(item:PurchaseItems):void{
-    this.selectedItems.push(item)
-    // this.selectedItemsCode.push(item.itemCode);
+  getCart(): any {
+    return this.cart;
   }
 
-  // public check(item:PurchaseItems):void{
-  //   if (this.selectedItems.includes(item)){
-  //
-  //   }
-  // }
+  public addToCart(item: PurchaseItems): void {
+    this.check(item);
+    this.cart.push(item);
+  }
+
+  public check(item: PurchaseItems): void {
+    for (const cart of this.cart) {
+      if (cart.itemCode?.itemCode === item.itemCode?.itemCode) {
+        this.removeFromCart(cart);
+        break;
+      }
+    }
+  }
 
 
-  public add(item:IInventory):void{
+  public add(item: IInventory): void {
     this.reviewItem = item;
+  }
+
+  public removeFromCart(item: IPurchaseItems): void {
+    const index = this.cart.indexOf(item);
+    this.cart.splice(index, 1);
+  }
+
+  destroy():void{
+    delete this.cart;
+    delete this.vendor;
+    delete this.reviewItem;
   }
 }

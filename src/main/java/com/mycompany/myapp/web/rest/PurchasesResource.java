@@ -1,6 +1,10 @@
 package com.mycompany.myapp.web.rest;
 
+import com.mycompany.myapp.domain.Inventory;
+import com.mycompany.myapp.domain.PurchaseItems;
 import com.mycompany.myapp.domain.Purchases;
+import com.mycompany.myapp.repository.InventoryRepository;
+import com.mycompany.myapp.repository.PurchaseItemsRepository;
 import com.mycompany.myapp.repository.PurchasesRepository;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 
@@ -21,6 +25,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,9 +46,12 @@ public class PurchasesResource {
     private String applicationName;
 
     private final PurchasesRepository purchasesRepository;
-
-    public PurchasesResource(PurchasesRepository purchasesRepository) {
+    private final InventoryRepository inventoryRepository;
+    private final PurchaseItemsRepository purchaseItemsRepository;
+    public PurchasesResource(PurchasesRepository purchasesRepository,PurchaseItemsRepository purchaseItemsRepository,InventoryRepository inventoryRepository) {
         this.purchasesRepository = purchasesRepository;
+        this.purchaseItemsRepository = purchaseItemsRepository;
+        this.inventoryRepository = inventoryRepository;
     }
 
     /**
@@ -58,6 +67,14 @@ public class PurchasesResource {
         if (purchases.getId() != null) {
             throw new BadRequestAlertException("A new purchases cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        for (PurchaseItems item : purchases.getItems()){
+            item.setPurchaseCode(purchases);
+            purchaseItemsRepository.save(item);
+            Inventory inventoryItem = item.getItemCode();
+            inventoryItem.setQuantity(item.getQuantity() + inventoryItem.getQuantity());
+            inventoryRepository.save(inventoryItem);
+        }
+        purchases.setDateOfPurchase(LocalDate.now().plusDays(1));
         Purchases result = purchasesRepository.save(purchases);
         return ResponseEntity.created(new URI("/api/purchases/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
@@ -98,6 +115,13 @@ public class PurchasesResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
+
+
+    @GetMapping("/purchases-get-by-date/{date}")
+    public List<Purchases> getALlPurchasesByDate(@PathVariable LocalDate date){
+        return purchasesRepository.getAllByDateOfPurchaseOrderByIdDesc(date.plusDays(1));
+    }
+
 
     /**
      * {@code GET  /purchases/:id} : get the "id" purchases.

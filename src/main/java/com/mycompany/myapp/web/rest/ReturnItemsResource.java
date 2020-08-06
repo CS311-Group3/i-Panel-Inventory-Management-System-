@@ -99,6 +99,11 @@ public class ReturnItemsResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/return-items-get-by-return-code/{code}")
+    public List<ReturnItems> getAllReturnItemsByReturnCode(@PathVariable String code){
+        return returnItemsRepository.getAllByReturnCode(code);
+    }
+
     /**
      * {@code GET  /return-items/:id} : get the "id" returnItems.
      *

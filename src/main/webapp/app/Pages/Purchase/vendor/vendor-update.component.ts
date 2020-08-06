@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
 
 import { IVendor, Vendor } from 'app/shared/model/vendor.model';
 import { VendorService } from './vendor.service';
+import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 
+@Injectable({providedIn:"root"})
 @Component({
   selector: 'jhi-vendor-update',
   templateUrl: './vendor-update.component.html',
@@ -23,7 +25,12 @@ export class VendorUpdateComponent implements OnInit {
     address: [],
   });
 
-  constructor(protected vendorService: VendorService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(protected vendorService: VendorService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder,public purchaseData:PurchaseData) {}
+
+  createVendor():void{
+    this.purchaseData.vendor = this.createFromForm();
+  }
+
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ vendor }) => {
@@ -45,7 +52,7 @@ export class VendorUpdateComponent implements OnInit {
     window.history.back();
   }
 
-  save(): void {
+  savex(): void {
     this.isSaving = true;
     const vendor = this.createFromForm();
     if (vendor.id !== undefined) {
@@ -58,7 +65,6 @@ export class VendorUpdateComponent implements OnInit {
   private createFromForm(): IVendor {
     return {
       ...new Vendor(),
-      id: this.editForm.get(['id'])!.value,
       vendorName: this.editForm.get(['vendorName'])!.value,
       phone: this.editForm.get(['phone'])!.value,
       email: this.editForm.get(['email'])!.value,
@@ -66,7 +72,7 @@ export class VendorUpdateComponent implements OnInit {
     };
   }
 
-  protected subscribeToSaveResponse(result: Observable<HttpResponse<IVendor>>): void {
+  public subscribeToSaveResponse(result: Observable<HttpResponse<IVendor>>): void {
     result.subscribe(
       () => this.onSaveSuccess(),
       () => this.onSaveError()
@@ -75,7 +81,7 @@ export class VendorUpdateComponent implements OnInit {
 
   protected onSaveSuccess(): void {
     this.isSaving = false;
-    this.previousState();
+    // this.previousState();
   }
 
   protected onSaveError(): void {

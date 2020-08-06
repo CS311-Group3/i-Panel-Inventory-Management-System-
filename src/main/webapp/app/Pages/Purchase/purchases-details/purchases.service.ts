@@ -8,6 +8,7 @@ import { DATE_FORMAT } from 'app/shared/constants/input.constants';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
 import { IPurchases } from 'app/shared/model/purchases.model';
+import {IInventory} from "app/shared/model/inventory.model";
 
 type EntityResponseType = HttpResponse<IPurchases>;
 type EntityArrayResponseType = HttpResponse<IPurchases[]>;
@@ -44,6 +45,11 @@ export class PurchasesService {
       .get<IPurchases[]>(this.resourceUrl, { params: options, observe: 'response' })
       .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
   }
+
+  getPurchasesByDate(date:string):Observable<EntityArrayResponseType>{
+    return this.http.get<IPurchases[]>(`${this.resourceUrl+ "-get-by-date"}/${date}`, { observe: 'response' });
+  }
+
 
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
