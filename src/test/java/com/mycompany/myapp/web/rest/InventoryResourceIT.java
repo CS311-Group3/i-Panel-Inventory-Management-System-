@@ -13,15 +13,18 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.EntityManager;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.LONG_STREAM;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.mycompany.myapp.domain.enumeration.Category;
+
 /**
  * Integration tests for the {@link InventoryResource} REST controller.
  */
@@ -67,7 +70,7 @@ public class InventoryResourceIT {
 
     /**
      * Create an entity for this test.
-     *
+     * <p>
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
@@ -83,9 +86,10 @@ public class InventoryResourceIT {
             .buyingPrice(DEFAULT_BUYING_PRICE);
         return inventory;
     }
+
     /**
      * Create an updated entity for this test.
-     *
+     * <p>
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
@@ -171,7 +175,7 @@ public class InventoryResourceIT {
             .andExpect(jsonPath("$.[*].sellingPrice").value(hasItem(DEFAULT_SELLING_PRICE.intValue())))
             .andExpect(jsonPath("$.[*].buyingPrice").value(hasItem(DEFAULT_BUYING_PRICE.intValue())));
     }
-    
+
     @Test
     @Transactional
     public void getInventory() throws Exception {
@@ -192,6 +196,7 @@ public class InventoryResourceIT {
             .andExpect(jsonPath("$.sellingPrice").value(DEFAULT_SELLING_PRICE.intValue()))
             .andExpect(jsonPath("$.buyingPrice").value(DEFAULT_BUYING_PRICE.intValue()));
     }
+
     @Test
     @Transactional
     public void getNonExistingInventory() throws Exception {
@@ -273,5 +278,47 @@ public class InventoryResourceIT {
         // Validate the database contains one less item
         List<Inventory> inventoryList = inventoryRepository.findAll();
         assertThat(inventoryList).hasSize(databaseSizeBeforeDelete - 1);
+    }
+
+
+    @Test
+    @Transactional
+    public void getInventoryBy() throws Exception {
+        inventoryRepository.saveAndFlush(inventory);
+        inventoryRepository.deleteAll();
+
+        Inventory i1 = new Inventory();
+        Inventory i2 = new Inventory();
+
+        i1.setItemCode("Item1");
+        i1.setItemName("Item1_Name");
+        i1.setCategory(Category.CAT1);
+
+        i2.setItemCode("Item2");
+        i2.setItemName("Item2_Name");
+        i2.setCategory(Category.CAT2);
+
+        inventoryRepository.save(i1);
+        inventoryRepository.save(i2);
+
+        List<Inventory> test = inventoryRepository.findAllByItemCodeContains("Item1");
+        assertThat(test.get(0)).isEqualTo(i1);
+        assertThat(test.get(0)).isNotEqualTo(i2);
+
+        test = inventoryRepository.findAllByItemNameContains("Item1_Name");
+        assertThat(test.get(0)).isEqualTo(i1);
+        assertThat(test.get(0)).isNotEqualTo(i2);
+
+        test = inventoryRepository.findAllByItemCodeContainsAndItemNameContains("Item1","Item1_Name");
+        assertThat(test.get(0)).isEqualTo(i1);
+        assertThat(test.get(0)).isNotEqualTo(i2);
+
+        test = inventoryRepository.findAllByCategory(Category.CAT1);
+        assertThat(test.get(0)).isEqualTo(i1);
+        assertThat(test.get(0)).isNotEqualTo(i2);
+
+        test = inventoryRepository.findAllByItemNameContainsAndCategory("Item1_Name",Category.CAT1);
+        assertThat(test.get(0)).isEqualTo(i1);
+        assertThat(test.get(0)).isNotEqualTo(i2);
     }
 }

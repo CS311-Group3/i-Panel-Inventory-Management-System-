@@ -1,6 +1,7 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.IpanelApp;
+import com.mycompany.myapp.domain.Purchases;
 import com.mycompany.myapp.domain.Sales;
 import com.mycompany.myapp.repository.SalesRepository;
 
@@ -137,7 +138,7 @@ public class SalesResourceIT {
             .andExpect(jsonPath("$.[*].serviceCharges").value(hasItem(DEFAULT_SERVICE_CHARGES.doubleValue())))
             .andExpect(jsonPath("$.[*].dateOfSale").value(hasItem(DEFAULT_DATE_OF_SALE.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getSales() throws Exception {
