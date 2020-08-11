@@ -11,7 +11,7 @@ import {PurchaseItems} from "app/shared/model/purchase-items.model";
 export class SalesPopupComponent implements OnInit {
 
   constructor(public activeModal: NgbActiveModal) {
-    
+
   }
 
   ngOnInit(): void {

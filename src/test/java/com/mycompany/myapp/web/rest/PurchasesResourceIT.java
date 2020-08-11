@@ -137,7 +137,7 @@ public class PurchasesResourceIT {
             .andExpect(jsonPath("$.[*].discounts").value(hasItem(DEFAULT_DISCOUNTS.doubleValue())))
             .andExpect(jsonPath("$.[*].dateOfPurchase").value(hasItem(DEFAULT_DATE_OF_PURCHASE.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getPurchases() throws Exception {
@@ -224,5 +224,26 @@ public class PurchasesResourceIT {
         // Validate the database contains one less item
         List<Purchases> purchasesList = purchasesRepository.findAll();
         assertThat(purchasesList).hasSize(databaseSizeBeforeDelete - 1);
+    }
+
+
+    @Test
+    @Transactional
+    public void getPurchasesByName() throws Exception{
+        purchasesRepository.saveAndFlush(purchases);
+        purchasesRepository.deleteAll();
+        Purchases p1 = new Purchases();
+        p1.setDateOfPurchase(LocalDate.now());
+        Purchases p2 = new Purchases();
+        p2.setDateOfPurchase(LocalDate.now());
+
+        purchasesRepository.save(p1);
+        purchasesRepository.save(p2);
+
+        List<Purchases> test = purchasesRepository.getAllByDateOfPurchaseOrderByIdDesc(LocalDate.now());
+
+        assertThat(test.size()).isEqualTo(2);
+
+
     }
 }
