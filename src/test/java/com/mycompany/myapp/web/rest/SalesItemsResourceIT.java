@@ -1,6 +1,7 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.IpanelApp;
+import com.mycompany.myapp.domain.Sales;
 import com.mycompany.myapp.domain.SalesItems;
 import com.mycompany.myapp.repository.SalesItemsRepository;
 
@@ -135,7 +136,7 @@ public class SalesItemsResourceIT {
             .andExpect(jsonPath("$.[*].quantity").value(hasItem(DEFAULT_QUANTITY)))
             .andExpect(jsonPath("$.[*].total").value(hasItem(DEFAULT_TOTAL.doubleValue())));
     }
-    
+
     @Test
     @Transactional
     public void getSalesItems() throws Exception {
@@ -223,4 +224,6 @@ public class SalesItemsResourceIT {
         List<SalesItems> salesItemsList = salesItemsRepository.findAll();
         assertThat(salesItemsList).hasSize(databaseSizeBeforeDelete - 1);
     }
+
+
 }
