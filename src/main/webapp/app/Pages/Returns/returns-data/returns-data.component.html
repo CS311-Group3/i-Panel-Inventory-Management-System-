@@ -1,14 +1,22 @@
 <div>
     <h2 id="page-heading">
         <span>Returns Data</span>
-
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-returns-data" [routerLink]="['/returns-data/new']">
-            <fa-icon icon="plus"></fa-icon>
-            <span>
-            Create a new Returns Data
-            </span>
-        </button>
     </h2>
+
+    <div class="topnav">
+        <a>search</a>
+        <a>by</a>
+        <a>date:</a>
+        <input type="text" placeholder="dd/mm/yy" returnsData.dateOfReturn |'mediumDate'>
+    </div>
+    <br>
+    <div class="topnav">
+        <a>search</a>
+        <a>by</a>
+        <a>sales code:</a>
+        <input type="text" placeholder="Search..">
+    </div>
+    <br>
 
     <jhi-alert-error></jhi-alert-error>
 
@@ -46,18 +54,7 @@
                                 <span class="d-none d-md-inline">View</span>
                             </button>
 
-                            <button type="submit"
-                                    [routerLink]="['/returns-data', returnsData.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
-                                <fa-icon icon="pencil-alt"></fa-icon>
-                                <span class="d-none d-md-inline">Edit</span>
-                            </button>
 
-                            <button type="submit" (click)="delete(returnsData)"
-                                    class="btn btn-danger btn-sm">
-                                <fa-icon icon="times"></fa-icon>
-                                <span class="d-none d-md-inline">Delete</span>
-                            </button>
                         </div>
                     </td>
                 </tr>
