@@ -16,7 +16,7 @@
         <div class="container" align="center">
             <div class="row">
                 <div class="col-md">
-                    <span [routerLink]="['purchase-menu']" class="purchases img-fluid rounded "><br><br><br><br><br><h6>Purchases</h6></span>
+                    <span [routerLink]="['purchase-menu']" class="purchases img-fluid rounded"><br><br><br><br><br><h6>Purchases</h6></span>
                 </div>
 
                 <div class="col-md">
@@ -77,8 +77,9 @@
 
 
                 <div class="col-md">
-                    <span class="logout img-fluid rounded "><br><br><br><br><br><h6>Logout</h6></span>
+                    <span class="logout img-fluid rounded " *jhiHasAnyAuthority="'ROLE_USER'" (click)="logout()"><br><br><br><br><br><h6>Logout</h6></span>
                 </div>
+                
             </div>
         </div>
     </div>
