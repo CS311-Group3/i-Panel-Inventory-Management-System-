@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { IVendor, Vendor } from 'app/shared/model/vendor.model';
 import { VendorService } from './vendor.service';
 import {PurchaseData} from "app/Pages/Purchase/purchase-data";
+import {ROUTES} from "app/Constants/Routes";
 
 @Injectable({providedIn:"root"})
 @Component({
@@ -25,7 +26,7 @@ export class VendorUpdateComponent implements OnInit {
     address: [],
   });
 
-  constructor(protected vendorService: VendorService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder,public purchaseData:PurchaseData) {}
+  constructor(protected vendorService: VendorService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder,public purchaseData:PurchaseData,public Routes:ROUTES) {}
 
   createVendor():void{
     this.purchaseData.vendor = this.createFromForm();

@@ -2,7 +2,7 @@
     <div class="col-md-1">
     </div>
     <div class="col-md-10">
-            <h1>Siwilima Home</h1>
+        <h1>Siwilima Home</h1>
         <hr>
         <br>
     </div>
@@ -16,22 +16,33 @@
         <div class="container" align="center">
             <div class="row">
                 <div class="col-md">
-                    <span [routerLink]="['purchase-menu']" class="purchases img-fluid rounded"><br><br><br><br><br><h6>Purchases</h6></span>
+                    <div class="menuItem">
+                        <img class="icon" [routerLink]="Routes.SALES_MENU"
+                             src="{{IMAGES.SALES}}">
+                    </div>
+                    <h6>SALES</h6>
                 </div>
 
                 <div class="col-md">
-                    <span [routerLink]="['sales-menu']" class="sales img-fluid rounded "><br><br><br><br><br><h6>Sales</h6></span>
+                    <div class="menuItem">
+                        <img class="icon" [routerLink]="Routes.PURCHASE_MENU"
+                             src="{{IMAGES.PURCHASES}}">
+                    </div>
+                    <h6>PURCHASES</h6>
                 </div>
 
                 <div class="col-md">
-                    <span [routerLink]="['returns-menu']" class="returns img-fluid rounded "><br><br><br><br><br><h6>Returns</h6></span>
+                    <div class="menuItem">
+                        <img class="icon" [routerLink]="Routes.RETURNS_MENU"
+                             src="{{IMAGES.RETURNS}}">
+                    </div>
+                    <h6>RETURNS</h6>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<br><br><br>
 
 <!--row 2-->
 <div class="row">
@@ -42,23 +53,34 @@
             <div class="row">
 
                 <div class="col-md">
-                    <span [routerLink]="['notifications']" class="notifications img-fluid rounded "><br><br><br><br><br><h6>Notifications</h6></span>
+                    <div class="menuItem">
+                        <img class="icon" [routerLink]=""
+                             src="{{IMAGES.NOTIFICATIONS}}">
+                    </div>
+                    <h6>NOTIFICATIONS</h6>
                 </div>
 
                 <div class="col-md">
-                    <span class="settings img-fluid rounded "><br><br><br><br><br><h6>Settings</h6></span>
+                    <div class="menuItem">
+                        <img class="icon" [routerLink]=""
+                             src="{{IMAGES.SETTINGS}}">
+                    </div>
+                    <h6>SETTINGS</h6>
                 </div>
 
 
                 <div class="col-md">
-                    <span [routerLink]="['inventory']" class="stocks img-fluid rounded "><br><br><br><br><br><h6>Stocks</h6></span>
+                    <div class="menuItem">
+                        <img class="icon" [routerLink]="Routes.INVENTORY"
+                             src="{{IMAGES.STOCKS}}">
+                    </div>
+                    <h6>INVENTORY</h6>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<br><br><br>
 
 <!--row 3-->
 <div class="row">
@@ -68,18 +90,21 @@
         <div class="container" align="center">
             <div class="row">
                 <div class="col-md" *jhiHasAnyAuthority="'ROLE_ADMIN'">
-                    <span [routerLink]="['admin-menu']" class="analytics img-fluid rounded "><br><br><br><br><br><h6>Admin Dashboard</h6></span>
+                    <div class="menuItem">
+                        <img class="icon" [routerLink]=""
+                             src="{{IMAGES.ADMIN}}">
+                    </div>
+                    <h6>ADMIN DASHBOARD</h6>
                 </div>
 
-<!--                <div class="col-md">-->
-<!--                    <span [routerLink]="['']" class="history img-fluid rounded "><br><br><br><br><br><h6>History</h6></span>-->
-<!--                </div>-->
-
-
-                <div class="col-md">
-                    <span class="logout img-fluid rounded " *jhiHasAnyAuthority="'ROLE_USER'" (click)="logout()"><br><br><br><br><br><h6>Logout</h6></span>
+                <div class="col-md" *jhiHasAnyAuthority="'ROLE_USER'">
+                    <div class="menuItem">
+                        <img class="icon" (click)="logout()"
+                             src="{{IMAGES.LOGOUT}}">
+                    </div>
+                    <h6>LOGOUT</h6>
                 </div>
-                
+
             </div>
         </div>
     </div>

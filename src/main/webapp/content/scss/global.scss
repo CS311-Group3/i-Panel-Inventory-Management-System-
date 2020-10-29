@@ -88,6 +88,7 @@ Custom alerts for notification
 .alerts {
   .alert {
     text-overflow: ellipsis;
+
     pre {
       background: none;
       border: none;
@@ -96,22 +97,28 @@ Custom alerts for notification
       padding: 0;
       margin: 0;
     }
+
     .popover pre {
       font-size: 10px;
     }
   }
+
   .jhi-toast {
     position: fixed;
     width: 100%;
+
     &.left {
       left: 5px;
     }
+
     &.right {
       right: 5px;
     }
+
     &.top {
       top: 55px;
     }
+
     &.bottom {
       bottom: 55px;
     }
@@ -138,6 +145,7 @@ entity detail page css
     dt {
       margin-bottom: 15px;
     }
+
     dd {
       border-bottom: 1px solid #eee;
       padding-left: 180px;
@@ -165,13 +173,28 @@ ui bootstrap tweaks
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
 
-.detailPageNames{
+.detailPageNames {
   font-size: 18px;
   font-weight: bold;
 }
 
-.detailPageValues{
+.detailPageValues {
   font-size: 18px;
   font-weight: normal;
 }
 
+
+.menuItem {
+  .icon {
+    padding: 20px;
+    transition: transform .2s;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    &:hover {
+      -ms-transform: scale(1.2); /* IE 9 */
+      -webkit-transform: scale(1.2); /* Safari 3-8 */
+      transform: scale(1.2);
+    }
+  }
+}

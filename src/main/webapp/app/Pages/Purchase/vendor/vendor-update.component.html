@@ -41,7 +41,7 @@
                   &nbsp;<span>Back</span>
                 </button>
 
-                <button type="submit" id="save-entity" (click)="createVendor()" [routerLink]="['../../purchase-checkout']" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                <button type="submit" id="save-entity" (click)="createVendor()" [routerLink]="Routes.PURCHASE_CHECKOUT" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
                     <span>Save</span>
                 </button>
             </div>

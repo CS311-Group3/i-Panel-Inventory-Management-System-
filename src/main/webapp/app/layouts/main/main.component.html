@@ -6,56 +6,22 @@
 
 <div class="wrapper">
     <!--    side bar-->
-    <div class="row">
-        <div class="col-md-2 sidebarcolor">
-            <span class="logo img-fluid rounded"></span>
-        </div>
+    <div class="col-md-2 sidebarcolor">
+        <span class="logo img-fluid rounded"></span>
+    </div>
 
-        <!--content-->
-        <div class="col-md-10 ">
+    <div class="formContainer">
+        <div class="col-md-12 ">
             <div class="card jh-card">
                 <router-outlet></router-outlet>
             </div>
-
-            <jhi-footer></jhi-footer>
         </div>
+        <!--content-->
+        <!--        <jhi-footer></jhi-footer>-->
     </div>
 </div>
 
 <style>
 
 
-
-
-    .sidebarcolor {
-        background-color: #662e91;
-    }
-
-    .logo {
-        display: inline-block;
-        width: 800px;
-        height: 397px;
-        background: url('../../../content/images/logo.jpg') no-repeat center top;
-        background-size: contain;
-
-    }
-
-    .wrapper {
-        padding-left: 15px;
-        padding-right: 15px;
-
-    }
-
-
-    @media only screen and (max-width: 768px) {
-        /* For mobile phones: */
-        .logo {
-            height: 0;
-            background-color: white;
-        }
-
-        .sidebarcolor {
-            background-color: white;
-        }
-    }
 </style>
