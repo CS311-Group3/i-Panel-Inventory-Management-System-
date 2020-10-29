@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
 import { IPurchaseItems } from 'app/shared/model/purchase-items.model';
-import {IInventory} from "app/shared/model/inventory.model";
 import {IPurchases} from "app/shared/model/purchases.model";
 
 type EntityResponseType = HttpResponse<IPurchaseItems>;

@@ -1,0 +1,43 @@
+.sidebarcolor {
+  background-color: #662e91;
+}
+
+.logo {
+  display: inline-block;
+  width: 800px;
+  height: 397px;
+  background: url('../../../content/images/logo.jpg') no-repeat center top;
+  background-size: contain;
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+  height: 91vh;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .logo {
+    height: 0;
+    background-color: white;
+  }
+
+  .sidebarcolor {
+    background-color: white;
+  }
+}
+
+.formContainer {
+  width: 100%;
+  position: relative;
+  overflow: auto;
+  overflow-x: hidden;
+  height: 91vh;
+}
+
+.app {
+  height: 100%;
+
+  width: 100%;
+}

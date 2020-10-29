@@ -41,7 +41,7 @@ export class PurchaseCartComponent implements OnInit {
   }
 
   addToCart(item: IInventory): void {
-    const modalRef = this.modalService.open(BuyPopupComponent);
+    this.modalService.open(BuyPopupComponent);
     this.purchaseData.add(item);
   }
 

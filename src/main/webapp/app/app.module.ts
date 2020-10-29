@@ -7,21 +7,20 @@ import { IpanelCoreModule } from 'app/core/core.module';
 import { IpanelAppRoutingModule } from './app-routing.module';
 import { IpanelHomeModule } from './Pages/home/home.module';
 import { IpanelEntityModule } from './entities/entity.module';
-import { IpanelAppLoginPageModule } from './Pages/Login/login-page/login-page.module';
-import { IpanelAppPurchaseCartModule } from './Pages/Purchase/purchase-cart/purchase-cart.module';
-import { IpanelAppPurchaseCheckoutModule } from './Pages/Purchase/purchase-checkout/purchase-checkout.module';
-import { IpanelAppSalesCartModule } from './Pages/Sales/sales-cart/sales-cart.module';
-import { IpanelAppSalesCheckoutModule } from './Pages/Sales/sales-checkout/sales-checkout.module';
-import { IpanelAppReturnsCartModule } from './Pages/Returns/returns-cart/returns-cart.module';
-import { IpanelAppReturnsCheckoutModule } from './Pages/Returns/returns-checkout/returns-checkout.module';
-import { IpanelAppNotificationsModule } from './Pages/Notifications/notifications/notifications.module';
-import { IpanelAppSalesMenuModule } from './Pages/Sales/sales-menu/sales-menu.module';
-import { IpanelAppPurchaseMenuModule } from './Pages/Purchase/purchase-menu/purchase-menu.module';
-import { IpanelAppReturnsMenuModule } from './Pages/Returns/returns-menu/returns-menu.module';
-import { IpanelAppAdminMenuModule } from './Pages/AdminDashboard/admin-menu/admin-menu.module';
-import { IpanelAppViewUsersModule } from './Pages/AdminDashboard/view-users/view-users.module';
-import { IpanelAppCreateUserModule } from './Pages/AdminDashboard/create-user/create-user.module';
-import { IpanelAppSystemStatsModule } from './Pages/AdminDashboard/system-stats/system-stats.module';
+import { IpanelAppPurchaseCartModule } from 'app/Pages/Purchase/purchase-cart';
+import { IpanelAppPurchaseCheckoutModule } from 'app/Pages/Purchase/purchase-checkout';
+import { IpanelAppSalesCartModule } from 'app/Pages/Sales/sales-cart';
+import { IpanelAppSalesCheckoutModule } from 'app/Pages/Sales/sales-checkout';
+import { IpanelAppReturnsCartModule } from 'app/Pages/Returns/returns-cart';
+import { IpanelAppReturnsCheckoutModule } from 'app/Pages/Returns/returns-checkout';
+import { IpanelAppNotificationsModule } from 'app/Pages/Notifications/notifications';
+import { IpanelAppSalesMenuModule } from 'app/Pages/Sales/sales-menu';
+import { IpanelAppPurchaseMenuModule } from 'app/Pages/Purchase/purchase-menu';
+import { IpanelAppReturnsMenuModule } from 'app/Pages/Returns/returns-menu';
+import { IpanelAppAdminMenuModule } from 'app/Pages/AdminDashboard/admin-menu';
+import { IpanelAppViewUsersModule } from 'app/Pages/AdminDashboard/view-users';
+import { IpanelAppCreateUserModule } from 'app/Pages/AdminDashboard/create-user';
+import { IpanelAppSystemStatsModule } from 'app/Pages/AdminDashboard/system-stats';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -38,7 +37,6 @@ import {SalesPopupComponent} from "app/Pages/Sales/sales-popup/sales-popup.compo
     IpanelSharedModule,
     IpanelCoreModule,
     IpanelHomeModule,
-    IpanelAppLoginPageModule,
     IpanelAppPurchaseCartModule,
     IpanelAppPurchaseCheckoutModule,
     IpanelAppSalesCartModule,

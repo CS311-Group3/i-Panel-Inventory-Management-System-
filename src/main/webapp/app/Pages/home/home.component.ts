@@ -6,6 +6,8 @@ import {AccountService} from 'app/core/auth/account.service';
 import {Account} from 'app/core/user/account.model';
 import {Router} from "@angular/router";
 import {LoginService} from "app/core/login/login.service";
+import {ROUTES} from 'app/Constants/Routes';
+import {Images} from "app/Constants/Images";
 
 @Component({
   selector: 'jhi-home',
@@ -15,8 +17,12 @@ import {LoginService} from "app/core/login/login.service";
 export class HomeComponent implements OnInit, OnDestroy {
   account: Account | null = null;
   authSubscription?: Subscription;
-
-  constructor(private accountService: AccountService, private loginModalService: LoginModalService, private router: Router, private loginService: LoginService,
+  constructor(private accountService: AccountService,
+              private loginModalService: LoginModalService,
+              private router: Router,
+              private loginService: LoginService,
+              public Routes:ROUTES,
+            public IMAGES:Images
   ) {
   }
 

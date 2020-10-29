@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ROUTES} from "app/Constants/Routes";
 
 @Component({
   selector: 'jhi-purchase-menu',
@@ -10,8 +11,7 @@ import {Component, OnInit} from '@angular/core';
 export class PurchaseMenuComponent implements OnInit {
 
   message: string;
-
-  constructor() {
+  constructor(public Routes:ROUTES) {
     this.message = 'PurchaseMenuComponent message';
   }
 
