@@ -11,5 +11,6 @@ export class Images {
   public SETTINGS = "content/images/Main menu/settings.png";
   public STOCKS = "content/images/Main menu/stocks.png";
   public RETURNS = "content/images/Main menu/returns.png";
+  public LOGS = "content/images/Main menu/logs.png";
 
 }

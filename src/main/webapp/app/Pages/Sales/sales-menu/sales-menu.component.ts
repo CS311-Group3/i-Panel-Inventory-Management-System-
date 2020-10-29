@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Images} from "app/Constants/Images";
 
 @Component({
   selector: 'jhi-sales-menu',
@@ -11,7 +12,7 @@ export class SalesMenuComponent implements OnInit {
 
   message: string;
 
-  constructor() {
+  constructor(public IMAGES:Images) {
     this.message = 'SalesMenuComponent message';
   }
 

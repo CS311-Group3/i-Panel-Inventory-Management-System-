@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Images} from "app/Constants/Images";
 
 @Component({
   selector: 'jhi-returns-menu',
@@ -11,7 +12,7 @@ export class ReturnsMenuComponent implements OnInit {
 
   message: string;
 
-  constructor() {
+  constructor(public IMAGES:Images) {
     this.message = 'ReturnsMenuComponent message';
   }
 
