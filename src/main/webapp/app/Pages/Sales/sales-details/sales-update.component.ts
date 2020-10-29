@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, Injectable, OnInit } from '@angular/core';
+
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
@@ -11,9 +13,11 @@ import { SalesService } from './sales.service';
 import { ICustomerDetails } from 'app/shared/model/customer-details.model';
 import { CustomerDetailsService } from 'app/Pages/Sales/customer-details/customer-details.service';
 
+@Injectable({ providedIn: 'root' })
+
 @Component({
   selector: 'jhi-sales-update',
-  templateUrl: './sales-update.component.html',
+  templateUrl: './sales-update.component.html'
 })
 export class SalesUpdateComponent implements OnInit {
   isSaving = false;
@@ -25,7 +29,7 @@ export class SalesUpdateComponent implements OnInit {
     total: [],
     serviceCharges: [],
     dateOfSale: [],
-    customerID: [],
+    customerID: []
   });
 
   constructor(
@@ -69,7 +73,7 @@ export class SalesUpdateComponent implements OnInit {
       total: sales.total,
       serviceCharges: sales.serviceCharges,
       dateOfSale: sales.dateOfSale,
-      customerID: sales.customerID,
+      customerID: sales.customerID
     });
   }
 
@@ -94,11 +98,11 @@ export class SalesUpdateComponent implements OnInit {
       total: this.editForm.get(['total'])!.value,
       serviceCharges: this.editForm.get(['serviceCharges'])!.value,
       dateOfSale: this.editForm.get(['dateOfSale'])!.value,
-      customerID: this.editForm.get(['customerID'])!.value,
+      customerID: this.editForm.get(['customerID'])!.value
     };
   }
 
-  protected subscribeToSaveResponse(result: Observable<HttpResponse<ISales>>): void {
+  public subscribeToSaveResponse(result: Observable<HttpResponse<ISales>>): void {
     result.subscribe(
       () => this.onSaveSuccess(),
       () => this.onSaveError()

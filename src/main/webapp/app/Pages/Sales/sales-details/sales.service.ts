@@ -51,7 +51,7 @@ export class SalesService {
 
   protected convertDateFromClient(sales: ISales): ISales {
     const copy: ISales = Object.assign({}, sales, {
-      dateOfSale: sales.dateOfSale && sales.dateOfSale.isValid() ? sales.dateOfSale.format(DATE_FORMAT) : undefined,
+      dateOfSale: sales.dateOfSale && sales.dateOfSale.isValid() ? sales.dateOfSale.format(DATE_FORMAT) : undefined
     });
     return copy;
   }
