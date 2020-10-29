@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { IpanelSharedModule } from '../../../shared/shared.module';
+import { IpanelSharedModule } from 'app/shared/shared.module';
 
 import { PURCHASE_MENU_ROUTE, PurchaseMenuComponent } from './index';
 

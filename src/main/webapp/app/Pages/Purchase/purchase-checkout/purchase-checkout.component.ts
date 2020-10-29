@@ -6,6 +6,7 @@ import {PurchasesUpdateComponent} from "app/Pages/Purchase/purchases-details/pur
 import {PurchasesService} from "app/Pages/Purchase/purchases-details/purchases.service";
 import {PurchaseItemsUpdateComponent} from "app/entities/purchase-items/purchase-items-update.component";
 import {PurchaseItemsService} from "app/entities/purchase-items/purchase-items.service";
+import {ROUTES} from "app/Constants/Routes";
 
 @Component({
   selector: 'jhi-purchase-checkout',
@@ -23,7 +24,8 @@ export class PurchaseCheckoutComponent implements OnInit {
               protected purchasesUpdateComponent: PurchasesUpdateComponent,
               protected purchasesService: PurchasesService,
               protected purchaseItemsUpdateComponent: PurchaseItemsUpdateComponent,
-              protected purchaseItemsService: PurchaseItemsService) {
+              protected purchaseItemsService: PurchaseItemsService,
+              public Routes:ROUTES) {
     this.cart = this.getItems();
     this.total = this.calculateTotal();
     this.purchase = new Purchases();

@@ -5,6 +5,7 @@ import {InventoryService} from "app/Pages/Inventory/inventory/inventory.service"
 import {IInventory, Inventory} from "app/shared/model/inventory.model";
 import {HttpResponse} from "@angular/common/http";
 import {PurchaseData} from "app/Pages/Purchase/purchase-data";
+import {ROUTES} from "app/Constants/Routes";
 
 @Component({
   selector: 'jhi-purchase-cart',
@@ -19,7 +20,7 @@ export class PurchaseCartComponent implements OnInit {
   itemName: string;
   searchItems: IInventory[] = [];
 
-  constructor(private modalService: NgbModal, protected inventoryService: InventoryService, public purchaseData: PurchaseData) {
+  constructor(private modalService: NgbModal, protected inventoryService: InventoryService, public purchaseData: PurchaseData,public Routes:ROUTES) {
     this.code = '';
     this.itemName = '';
   }
