@@ -11,6 +11,7 @@ import { CustomerDetailsService } from './customer-details.service';
 import { CustomerDetailsComponent } from './customer-details.component';
 import { CustomerDetailsDetailComponent } from './customer-details-detail.component';
 import { CustomerDetailsUpdateComponent } from './customer-details-update.component';
+import {CUSTOMER_DETAILS, SALES} from "app/Pages/pageTitles";
 
 @Injectable({ providedIn: 'root' })
 export class CustomerDetailsResolve implements Resolve<ICustomerDetails> {
@@ -40,7 +41,7 @@ export const customerDetailsRoute: Routes = [
     component: CustomerDetailsComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'CustomerDetails',
+      pageTitle: CUSTOMER_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +53,7 @@ export const customerDetailsRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'CustomerDetails',
+      pageTitle: CUSTOMER_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +65,7 @@ export const customerDetailsRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'CustomerDetails',
+      pageTitle: SALES,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +77,7 @@ export const customerDetailsRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'CustomerDetails',
+      pageTitle: CUSTOMER_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },

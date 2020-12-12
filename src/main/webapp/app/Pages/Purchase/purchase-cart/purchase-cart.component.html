@@ -87,9 +87,10 @@
         </div>
 
         <!--        buttons-->
-        <button class="btn btn-secondary" [routerLink]="Routes.HOME">Cancel</button>
-        <button class="btn btn-primary" [routerLink]="Routes.ADD_VENDOR">Proceed</button>
 
+        <button class="btn btn-secondary" [routerLink]="Routes.HOME">Cancel</button>
+        <button class="btn btn-primary" (click)="proceed()" >Proceed</button>
+        <p class="ErrorMsg">{{message}}</p>
     </div>
     <div class="col-md-1"></div>
 </div>

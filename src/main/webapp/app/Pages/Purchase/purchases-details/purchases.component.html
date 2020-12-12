@@ -1,7 +1,6 @@
 <div>
     <h2 id="page-heading">
         <span>Purchases</span>
-
         <!--        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-purchases" [routerLink]="['/purchases/new']">-->
         <!--            <fa-icon icon="plus"></fa-icon>-->
         <!--            <span>-->
@@ -58,18 +57,18 @@
                             <span class="d-none d-md-inline">View</span>
                         </button>
 
-                        <!--                            <button type="submit"-->
-                        <!--                                    [routerLink]="['/purchases', purchases.id, 'edit']"-->
-                        <!--                                    class="btn btn-primary btn-sm">-->
-                        <!--                                <fa-icon icon="pencil-alt"></fa-icon>-->
-                        <!--                                <span class="d-none d-md-inline">Edit</span>-->
-                        <!--                            </button>-->
+<!--                        <button type="submit" *jhiHasAnyAuthority="ROLE.ADMIN"-->
+                        <!--                                [routerLink]="['/purchases', purchases.id, 'edit']"-->
+                        <!--                                class="btn btn-primary btn-sm">-->
+                        <!--                            <fa-icon icon="pencil-alt"></fa-icon>-->
+                        <!--                            <span class="d-none d-md-inline">Edit</span>-->
+                        <!--                        </button>-->
 
-                        <!--                            <button type="submit" (click)="delete(purchases)"-->
-                        <!--                                    class="btn btn-danger btn-sm">-->
-                        <!--                                <fa-icon icon="times"></fa-icon>-->
-                        <!--                                <span class="d-none d-md-inline">Delete</span>-->
-                        <!--                            </button>-->
+<!--                        <button type="submit" (click)="delete(purchases)" *jhiHasAnyAuthority="ROLE.ADMIN"-->
+<!--                                class="btn btn-danger btn-sm">-->
+<!--                            <fa-icon icon="times"></fa-icon>-->
+<!--                            <span class="d-none d-md-inline">Delete</span>-->
+<!--                        </button>-->
                     </div>
                 </td>
             </tr>

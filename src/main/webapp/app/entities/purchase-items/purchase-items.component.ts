@@ -9,6 +9,7 @@ import { IPurchaseItems } from 'app/shared/model/purchase-items.model';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { PurchaseItemsService } from './purchase-items.service';
 import { PurchaseItemsDeleteDialogComponent } from './purchase-items-delete-dialog.component';
+import {ROLES} from "app/Constants/Roles";
 
 @Component({
   selector: 'jhi-purchase-items',
@@ -27,7 +28,8 @@ export class PurchaseItemsComponent implements OnInit, OnDestroy {
     protected purchaseItemsService: PurchaseItemsService,
     protected eventManager: JhiEventManager,
     protected modalService: NgbModal,
-    protected parseLinks: JhiParseLinks
+    protected parseLinks: JhiParseLinks,
+    public ROLE:ROLES
   ) {
     this.purchaseItems = [];
     this.itemsPerPage = ITEMS_PER_PAGE;

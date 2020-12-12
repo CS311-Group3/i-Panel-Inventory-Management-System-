@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {PurchaseData} from "app/Pages/Purchase/purchase-data";
 import {PurchaseItems} from "app/shared/model/purchase-items.model";
+import {isNumeric} from "rxjs/internal-compatibility";
 
 @Component({
   selector: 'jhi-buy-popup',
@@ -57,6 +58,7 @@ export class BuyPopupComponent implements OnInit {
       this.message = "Price cannot be negative";
       return false;
     }
+
     return true;
   }
 

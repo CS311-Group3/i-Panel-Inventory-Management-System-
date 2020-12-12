@@ -11,6 +11,7 @@ import { InventoryService } from './inventory.service';
 import { InventoryComponent } from './inventory.component';
 import { InventoryDetailComponent } from './inventory-detail.component';
 import { InventoryUpdateComponent } from './inventory-update.component';
+import {INVENTORY} from "app/Pages/pageTitles";
 
 @Injectable({ providedIn: 'root' })
 export class InventoryResolve implements Resolve<IInventory> {
@@ -40,7 +41,7 @@ export const inventoryRoute: Routes = [
     component: InventoryComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Inventories',
+      pageTitle: INVENTORY,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +53,7 @@ export const inventoryRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Inventories',
+      pageTitle: INVENTORY,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +65,7 @@ export const inventoryRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Inventories',
+      pageTitle: INVENTORY,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +77,7 @@ export const inventoryRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Inventories',
+      pageTitle: INVENTORY,
     },
     canActivate: [UserRouteAccessService],
   },

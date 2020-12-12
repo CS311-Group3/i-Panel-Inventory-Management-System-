@@ -25,6 +25,7 @@ import { IpanelAppSystemStatsModule } from 'app/Pages/AdminDashboard/system-stat
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
+import {SidebarComponent} from "app/layouts/sidebar/sidebar.component";
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ErrorComponent } from './layouts/error/error.component';
 import { BuyPopupComponent } from "app/Pages/Purchase/buy-popup/buy-popup.component";
@@ -55,7 +56,7 @@ import {SalesPopupComponent} from "app/Pages/Sales/sales-popup/sales-popup.compo
     IpanelEntityModule,
     IpanelAppRoutingModule
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, BuyPopupComponent,ReturnPopupComponent,SalesPopupComponent],
+  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, BuyPopupComponent,ReturnPopupComponent,SalesPopupComponent,SidebarComponent],
   bootstrap: [MainComponent]
 })
 export class IpanelAppModule {}

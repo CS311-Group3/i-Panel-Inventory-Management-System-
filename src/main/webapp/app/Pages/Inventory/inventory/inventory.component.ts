@@ -9,6 +9,7 @@ import { IInventory } from 'app/shared/model/inventory.model';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { InventoryService } from './inventory.service';
 import { InventoryDeleteDialogComponent } from './inventory-delete-dialog.component';
+import {ROLES} from "app/Constants/Roles";
 
 @Component({
   selector: 'jhi-inventory',
@@ -30,7 +31,8 @@ export class InventoryComponent implements OnInit, OnDestroy {
     protected inventoryService: InventoryService,
     protected eventManager: JhiEventManager,
     protected modalService: NgbModal,
-    protected parseLinks: JhiParseLinks
+    protected parseLinks: JhiParseLinks,
+    public ROLE:ROLES,
   ) {
     this.inventories = [];
     this.itemsPerPage = ITEMS_PER_PAGE;

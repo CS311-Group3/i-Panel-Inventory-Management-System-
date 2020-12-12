@@ -47,7 +47,7 @@ export class SalesCheckoutComponent implements OnInit {
       this.salesItemsUpdateComponent.subscribeToSaveResponse(this.salesItemsService.create(item));
     }
 
-    this.salesData.destroy();
+    // this.salesData.destroy();
     this.destroy();
 
   }
@@ -60,15 +60,16 @@ export class SalesCheckoutComponent implements OnInit {
   }
 
   calculateTotal(): number {
-    this.total = 0;
-    for (const item of this.salesData.getCart()) {
-      this.total = this.total + item.total;
-    }
+    // this.total = 0;
+    // for (const item of this.salesData.getCart()) {
+    //   this.total = this.total + item.total;
+    // }
     return this.total;
   }
 
   getItems():ISalesItems[]{
-    return this.salesData.cart;
+    // return this.salesData.cart;
+  return[];
   }
 
   private createSale(): ISales {

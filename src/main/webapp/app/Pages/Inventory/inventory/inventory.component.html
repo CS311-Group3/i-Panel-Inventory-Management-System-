@@ -1,11 +1,12 @@
 <div>
     <h2 id="page-heading">
-        <span>Inventories</span>
+        <span>Inventory</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventory" [routerLink]="['/inventory/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventory"
+                [routerLink]="['/inventory/new']" *jhiHasAnyAuthority="ROLE.ADMIN">
             <fa-icon icon="plus"></fa-icon>
             <span>
-            Create a new Inventory
+           Add new item
             </span>
         </button>
     </h2>
@@ -15,60 +16,79 @@
     <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="inventories?.length === 0">
-        <span>No inventories found</span>
+        <span>Inventory is empty</span>
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="inventories && inventories.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="itemCode"><span>Item Code</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="itemName"><span>Item Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="category"><span>Category</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="description"><span>Description</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="quantity"><span>Quantity</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="reorderLevel"><span>Reorder Level</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="sellingPrice"><span>Selling Price</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="buyingPrice"><span>Buying Price</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"></th>
-                </tr>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                <th scope="col" jhiSortBy="id"><span>ID</span>
+                    <fa-icon icon="sort"></fa-icon>
+                </th>
+                <th scope="col" jhiSortBy="itemCode"><span>Item Code</span>
+                    <fa-icon icon="sort"></fa-icon>
+                </th>
+                <th scope="col" jhiSortBy="itemName"><span>Item Name</span>
+                    <fa-icon icon="sort"></fa-icon>
+                </th>
+                <th scope="col" jhiSortBy="category"><span>Category</span>
+                    <fa-icon icon="sort"></fa-icon>
+                </th>
+                <th scope="col" jhiSortBy="description"><span>Description</span>
+                    <fa-icon icon="sort"></fa-icon>
+                </th>
+                <th scope="col" jhiSortBy="quantity"><span>Quantity</span>
+                    <fa-icon icon="sort"></fa-icon>
+                </th>
+                <th scope="col" jhiSortBy="reorderLevel"><span>Reorder Level</span>
+                    <fa-icon icon="sort"></fa-icon>
+                </th>
+                <th scope="col" jhiSortBy="sellingPrice"><span>Selling Price</span>
+                    <fa-icon icon="sort"></fa-icon>
+                </th>
+                <th scope="col" jhiSortBy="buyingPrice"><span>Buying Price</span>
+                    <fa-icon icon="sort"></fa-icon>
+                </th>
+                <th scope="col"></th>
+            </tr>
             </thead>
-            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
-                <tr *ngFor="let inventory of inventories ;trackBy: trackId">
-                    <td><a [routerLink]="['/inventory', inventory.id, 'view']">{{ inventory.id }}</a></td>
-                    <td>{{ inventory.itemCode }}</td>
-                    <td>{{ inventory.itemName }}</td>
-                    <td>{{ inventory.category }}</td>
-                    <td>{{ inventory.description }}</td>
-                    <td>{{ inventory.quantity }}</td>
-                    <td>{{ inventory.reorderLevel }}</td>
-                    <td>{{ inventory.sellingPrice }}</td>
-                    <td>{{ inventory.buyingPrice }}</td>
-                    <td class="text-right">
-                        <div class="btn-group">
-                            <button type="submit"
-                                    [routerLink]="['/inventory', inventory.id, 'view']"
-                                    class="btn btn-info btn-sm">
-                                <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline">View</span>
-                            </button>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']"
+                   [infiniteScrollDistance]="0">
+            <tr *ngFor="let inventory of inventories ;trackBy: trackId">
+                <td><a [routerLink]="['/inventory', inventory.id, 'view']">{{ inventory.id }}</a></td>
+                <td>{{ inventory.itemCode }}</td>
+                <td>{{ inventory.itemName }}</td>
+                <td>{{ inventory.category }}</td>
+                <td>{{ inventory.description }}</td>
+                <td>{{ inventory.quantity }}</td>
+                <td>{{ inventory.reorderLevel }}</td>
+                <td>{{ inventory.sellingPrice }}</td>
+                <td>{{ inventory.buyingPrice }}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/inventory', inventory.id, 'view']"
+                                class="btn btn-info btn-sm">
+                            <fa-icon icon="eye"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
 
-                            <button type="submit"
-                                    [routerLink]="['/inventory', inventory.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
-                                <fa-icon icon="pencil-alt"></fa-icon>
-                                <span class="d-none d-md-inline">Edit</span>
-                            </button>
+                        <button type="submit" *jhiHasAnyAuthority="ROLE.ADMIN"
+                                [routerLink]="['/inventory', inventory.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon icon="pencil-alt"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
 
-                            <button type="submit" (click)="delete(inventory)"
-                                    class="btn btn-danger btn-sm">
-                                <fa-icon icon="times"></fa-icon>
-                                <span class="d-none d-md-inline">Delete</span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+                        <button type="submit" *jhiHasAnyAuthority="ROLE.ADMIN" (click)="delete(inventory)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon icon="times"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>

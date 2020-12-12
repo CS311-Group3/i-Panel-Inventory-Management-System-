@@ -11,6 +11,7 @@ import { VendorService } from './vendor.service';
 import { VendorComponent } from './vendor.component';
 import { VendorDetailComponent } from './vendor-detail.component';
 import { VendorUpdateComponent } from './vendor-update.component';
+import {VENDOR_DETAILS} from "app/Pages/pageTitles";
 
 @Injectable({ providedIn: 'root' })
 export class VendorResolve implements Resolve<IVendor> {
@@ -40,7 +41,7 @@ export const vendorRoute: Routes = [
     component: VendorComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Vendors',
+      pageTitle: VENDOR_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +53,7 @@ export const vendorRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Vendors',
+      pageTitle: VENDOR_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +65,7 @@ export const vendorRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Vendors',
+      pageTitle: VENDOR_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +77,7 @@ export const vendorRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Vendors',
+      pageTitle: VENDOR_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },

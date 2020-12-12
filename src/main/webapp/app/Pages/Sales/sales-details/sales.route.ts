@@ -11,6 +11,7 @@ import { SalesService } from './sales.service';
 import { SalesComponent } from './sales.component';
 import { SalesDetailComponent } from './sales-detail.component';
 import { SalesUpdateComponent } from './sales-update.component';
+import {SALES, SALES_DETAILS} from "app/Pages/pageTitles";
 
 @Injectable({ providedIn: 'root' })
 export class SalesResolve implements Resolve<ISales> {
@@ -40,7 +41,7 @@ export const salesRoute: Routes = [
     component: SalesComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Sales',
+      pageTitle: SALES_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +53,7 @@ export const salesRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Sales',
+      pageTitle: SALES_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +65,7 @@ export const salesRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Sales',
+      pageTitle: SALES,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +77,7 @@ export const salesRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Sales',
+      pageTitle: SALES_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },

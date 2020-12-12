@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
 import {LoginService} from "app/core/login/login.service";
 import {ROUTES} from 'app/Constants/Routes';
 import {Images} from "app/Constants/Images";
+import {ROLES} from "app/Constants/Roles";
 
 @Component({
   selector: 'jhi-home',
@@ -22,7 +23,8 @@ export class HomeComponent implements OnInit, OnDestroy {
               private router: Router,
               private loginService: LoginService,
               public Routes:ROUTES,
-            public IMAGES:Images
+            public IMAGES:Images,
+              public ROLE: ROLES,
   ) {
   }
 

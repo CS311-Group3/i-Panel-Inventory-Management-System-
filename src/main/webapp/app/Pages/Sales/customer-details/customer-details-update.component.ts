@@ -72,7 +72,7 @@ export class CustomerDetailsUpdateComponent implements OnInit {
   }
 
   createCustomer():void{
-    this.salesData.customer = this.createFromForm();
+    // this.salesData.customer = this.createFromForm();
   }
 
   public subscribeToSaveResponse(result: Observable<HttpResponse<ICustomerDetails>>): void {

@@ -11,6 +11,7 @@ import { ReturnsDataService } from './returns-data.service';
 import { ReturnsDataComponent } from './returns-data.component';
 import { ReturnsDataDetailComponent } from './returns-data-detail.component';
 import { ReturnsDataUpdateComponent } from './returns-data-update.component';
+import {RETURNS} from "app/Pages/pageTitles";
 
 @Injectable({ providedIn: 'root' })
 export class ReturnsDataResolve implements Resolve<IReturnsData> {
@@ -40,7 +41,7 @@ export const returnsDataRoute: Routes = [
     component: ReturnsDataComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'ReturnsData',
+      pageTitle: RETURNS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +53,7 @@ export const returnsDataRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'ReturnsData',
+      pageTitle: RETURNS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +65,7 @@ export const returnsDataRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'ReturnsData',
+      pageTitle: RETURNS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +77,7 @@ export const returnsDataRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'ReturnsData',
+      pageTitle: RETURNS,
     },
     canActivate: [UserRouteAccessService],
   },

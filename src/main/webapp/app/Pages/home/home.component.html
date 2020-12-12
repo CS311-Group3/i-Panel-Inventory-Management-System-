@@ -83,13 +83,13 @@
 
 
 <!--row 3-->
-<div class="row">
+<div class="row" [ngSwitch]="isAuthenticated()">
     <div class="col-md-1">
     </div>
     <div class="col-md-10">
         <div class="container" align="center">
             <div class="row">
-                <div class="col-md" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                <div class="col-md" *jhiHasAnyAuthority="ROLE.ADMIN">
                     <div class="menuItem">
                         <img class="icon" [routerLink]=""
                              src="{{IMAGES.ADMIN}}">
@@ -97,12 +97,20 @@
                     <h6>ADMIN DASHBOARD</h6>
                 </div>
 
-                <div class="col-md" *jhiHasAnyAuthority="'ROLE_USER'">
+                <div class="col-md" *ngSwitchCase="true">
                     <div class="menuItem">
                         <img class="icon" (click)="logout()"
                              src="{{IMAGES.LOGOUT}}">
                     </div>
                     <h6>LOGOUT</h6>
+                </div>
+
+                <div class="col-md" *ngSwitchCase="false">
+                    <div class="menuItem">
+                        <img class="icon" (click)="login()"
+                             src="{{IMAGES.LOGOUT}}">
+                    </div>
+                    <h6>LOGIN</h6>
                 </div>
 
             </div>

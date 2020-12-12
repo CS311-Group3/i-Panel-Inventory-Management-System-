@@ -11,6 +11,7 @@ import { PurchasesService } from './purchases.service';
 import { PurchasesComponent } from './purchases.component';
 import { PurchasesDetailComponent } from './purchases-detail.component';
 import { PurchasesUpdateComponent } from './purchases-update.component';
+import {PURCHASE_DETAILS} from "app/Pages/pageTitles";
 
 @Injectable({ providedIn: 'root' })
 export class PurchasesResolve implements Resolve<IPurchases> {
@@ -40,7 +41,7 @@ export const purchasesRoute: Routes = [
     component: PurchasesComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Purchases',
+      pageTitle: PURCHASE_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +53,7 @@ export const purchasesRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Purchases',
+      pageTitle: PURCHASE_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +65,7 @@ export const purchasesRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Purchases',
+      pageTitle: PURCHASE_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +77,7 @@ export const purchasesRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'Purchases',
+      pageTitle: PURCHASE_DETAILS,
     },
     canActivate: [UserRouteAccessService],
   },

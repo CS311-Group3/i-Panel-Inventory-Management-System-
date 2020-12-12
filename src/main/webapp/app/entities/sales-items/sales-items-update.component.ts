@@ -87,7 +87,7 @@ export class SalesItemsUpdateComponent implements OnInit {
     };
   }
 
-  protected subscribeToSaveResponse(result: Observable<HttpResponse<ISalesItems>>): void {
+  public subscribeToSaveResponse(result: Observable<HttpResponse<ISalesItems>>): void {
     result.subscribe(
       () => this.onSaveSuccess(),
       () => this.onSaveError()
